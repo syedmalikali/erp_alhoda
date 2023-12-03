@@ -110,6 +110,7 @@ app_license = "mit"
 #	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 fixtures = [
+    "Custom Field",
     {"dt": "Custom DocPerm"},
 ]
 # DocType Class
