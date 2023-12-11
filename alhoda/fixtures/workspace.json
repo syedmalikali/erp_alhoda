@@ -125,7 +125,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2023-12-03 12:47:56.211431",
+  "modified": "2023-12-11 09:49:05.839590",
   "module": null,
   "name": "Sales User",
   "number_cards": [],
@@ -133,7 +133,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Sales User",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Sales User"
+   }
+  ],
   "sequence_id": 39.0,
   "shortcuts": [
    {
@@ -457,15 +464,22 @@
     "type": "Link"
    }
   ],
-  "modified": "2023-12-03 20:54:52.960867",
-  "module": null,
+  "modified": "2023-12-11 09:48:32.821808",
+  "module": "",
   "name": "Showroom Manager",
   "number_cards": [],
   "parent_page": "",
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Showroom Manager",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Showroom Manager"
+   }
+  ],
   "sequence_id": 40.0,
   "shortcuts": [
    {

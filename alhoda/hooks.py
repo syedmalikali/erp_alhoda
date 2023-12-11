@@ -111,7 +111,7 @@ app_license = "mit"
 # }
 fixtures = [
     "Custom Field","Client Script",
-    {"dt": "Role","filters":[["name","in","Test Role"]]},
+    {"dt": "Role","filters":[["name","in",["Test Role","Stock Controller","Store Keeper","Showroom Store Keeper","Sales Coordinator","Sales Executives","Showroom Manager"]]]},
     {"dt": "Custom DocPerm"},
     {"dt": "Workspace","filters":[["title","in",["Showroom Manager","Sales User"]]]},
 ]
