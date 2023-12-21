@@ -69,7 +69,7 @@ def get_columns():
 def get_data_and_chart(filters):
     conditions = "AND 1=1 "
     if(filters.get('item_code')):
-        conditions += f"and  sit.item_code like '%{filters.get('item_code')}%'"
+        conditions += f"and  tb.item_code like '%{filters.get('item_code')}%'"
             
         
     

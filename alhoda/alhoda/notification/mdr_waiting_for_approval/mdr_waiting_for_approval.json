@@ -1,0 +1,46 @@
+{
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "",
+ "creation": "2023-12-15 22:39:37.483525",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Stock Entry",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "MDR {{ doc.name}} Waiting for Approval f",
+ "modified": "2023-12-17 09:13:14.999411",
+ "modified_by": "Administrator",
+ "module": "Alhoda",
+ "name": "MDR Waiting for Approval",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "condition": "doc.workflow_state == \"Draft\" ",
+   "receiver_by_document_field": "owner"
+  },
+  {
+   "condition": "doc.workflow_state == \"Pending Approval Azizya WH\"",
+   "receiver_by_role": "01 - AH"
+  },
+  {
+   "condition": "doc.workflow_state == \"Pending Approval RYD SH\"",
+   "receiver_by_role": "06 - AH"
+  },
+  {
+   "condition": "doc.workflow_state == \"Pending Approval KHO SH\"",
+   "receiver_by_role": "02 - AH"
+  },
+  {
+   "condition": "doc.workflow_state == \"Pending Approval - RYD WH\"",
+   "receiver_by_role": "11 - AH"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "subject": "MDR <span style=\"color:blue;font-weight:bold\">{{ doc.name}}</span> Waiting for Approval",
+ "value_changed": "workflow_state"
+}

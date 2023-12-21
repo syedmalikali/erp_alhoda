@@ -1,0 +1,128 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 23:26:56.915570",
+  "name": "Rejected By Azizya WH",
+  "style": "Danger",
+  "workflow_state_name": "Rejected By Azizya WH"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "ok-sign",
+  "modified": "2023-11-24 12:22:31.985728",
+  "name": "Approved",
+  "style": "Success",
+  "workflow_state_name": "Approved"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "remove",
+  "modified": "2023-11-24 12:22:31.987505",
+  "name": "Rejected",
+  "style": "Danger",
+  "workflow_state_name": "Rejected"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "question-sign",
+  "modified": "2023-11-24 12:22:31.983295",
+  "name": "Pending",
+  "style": "",
+  "workflow_state_name": "Pending"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 19:47:53.970150",
+  "name": "Approved by RYD SH",
+  "style": "",
+  "workflow_state_name": "Approved by RYD SH"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 19:48:15.648159",
+  "name": "Approved by KHO SH",
+  "style": "",
+  "workflow_state_name": "Approved by KHO SH"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 15:09:13.544399",
+  "name": "Save",
+  "style": "",
+  "workflow_state_name": "Save"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 19:48:40.532551",
+  "name": "Approved by RYD WH",
+  "style": "",
+  "workflow_state_name": "Approved by RYD WH"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 19:44:39.369887",
+  "name": "Pending Approval RYD SH",
+  "style": "",
+  "workflow_state_name": "Pending Approval RYD SH"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 19:45:36.044905",
+  "name": "Pending Approval KHO SH",
+  "style": "",
+  "workflow_state_name": "Pending Approval KHO SH"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 19:46:02.297052",
+  "name": "Pending Approval - RYD WH",
+  "style": "",
+  "workflow_state_name": "Pending Approval - RYD WH"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 19:47:26.283563",
+  "name": "Approved by Azizya Warehouse",
+  "style": "",
+  "workflow_state_name": "Approved by Azizya Warehouse"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 19:45:07.807091",
+  "name": "Pending Approval Azizya WH",
+  "style": "",
+  "workflow_state_name": "Pending Approval Azizya WH"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2023-12-14 15:09:05.193870",
+  "name": "Draft",
+  "style": "",
+  "workflow_state_name": "Draft"
+ }
+]

@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "doc.workflow_state == \"Pending Approval Azizya WH\"",
+ "creation": "2023-12-15 22:39:12.778864",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Stock Entry",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "MDR {{ doc.name}} Waiting for Approval",
+ "modified": "2023-12-15 22:39:12.778864",
+ "modified_by": "Administrator",
+ "module": "Alhoda",
+ "name": "MDR {{ doc.name}} Waiting for Approval",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "01 - AH"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "subject": "MDR {{ doc.name}} Waiting for Approval",
+ "value_changed": "workflow_state"
+}

@@ -9,7 +9,7 @@ frappe.query_reports["Item Enquiry"] = {
 			"fieldtype":"Data",
 			"Default":"AB",
 			"width":"100",
-			"reqd":0,
+			"reqd":1,
 		},
 
 	]

@@ -70,10 +70,10 @@
   "doctype": "Client Script",
   "dt": "Quotation",
   "enabled": 1,
-  "modified": "2023-12-04 12:12:25.120850",
+  "modified": "2023-12-21 09:25:17.112588",
   "module": "Alhoda",
   "name": "Naming Series Quotation",
-  "script": "frappe.ui.form.on('Quotation', {\n\trefresh(frm) {\n\t\t   document.getElementsByClassName(\"form-tabs-list\")[0].style.backgroundColor = 'cadetblue';\n\n\t},\n\tvalidate(frm){\n\t    set_naming(frm)\n\t},\n   \n})\n\nfunction set_naming(frm){\n    if (frm.doc.custom_cost_center) {\n        // Update the series field with the desired format\n        frm.set_value(\"naming_series\",frm.doc.custom_cost_center.charAt(0) +'Q'+ '-.YY.-')}\n}",
+  "script": "frappe.ui.form.on('Quotation', {\nonload_post_render(frm){\n        frm.remove_custom_button('Opportunity', 'Get Items From');\n        \n    },\n\trefresh(frm) {\n\t\t   document.getElementsByClassName(\"form-tabs-list\")[0].style.backgroundColor = 'cadetblue';\n// \tsetTimeout(() => {\n//         console.debug(\"Removing Duplicate Button\");\n  \n//         $('a.grey-link').each(function() {\n//             // Comparing data-label instead of Button Text\n//             var id = $(this).children(':first-child').attr('data-label'); \n//             if(id == 'Print'){\n//                 $(this).remove();\n//                 return false // exit loop\n//             }\n//         });\n        \n\t    \n// \t}, 100);\n    \n\n\t},\n\n   \n})\n\n",
   "view": "Form"
  },
  {
@@ -85,6 +85,28 @@
   "module": "Alhoda",
   "name": "Naming Series Sales Order",
   "script": "frappe.ui.form.on('Sales Order', {\n\trefresh(frm) {\n\n\t},\n\tvalidate(frm){\n\t    set_naming(frm)\n\t},\n   \n})\n\nfunction set_naming(frm){\n    if (frm.doc.cost_center) {\n        // Update the series field with the desired format\n        frm.set_value(\"naming_series\",frm.doc.cost_center.charAt(0) +'SO'+ '-.YY.-')}\n}\n\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Stock Entry",
+  "enabled": 1,
+  "modified": "2023-12-15 22:56:12.032602",
+  "module": "Alhoda",
+  "name": "WH Restriction Stock Entry",
+  "script": "frappe.ui.form.on('Stock Entry', {\n\trefresh(frm) {\n\t    frm.page.wrapper.find(\".comment-box\").css({'display':'none'});\n\t    frm.page.wrapper.find(\".new-timeline\").css({'display':'none'});\n\t    \n\t    \n\t    \n\t    var userRoles = frappe.user_roles;\n\n        // Filter roles starting with a number\n        var rolesStartingWithNumber = userRoles.filter(function(role) {\n            return /^\\d/.test(role);\n        });\n        if (rolesStartingWithNumber[0]){\n            \tfrm.set_query(\"from_warehouse\", (doc) => {\n         return {\n             filters: {\n                 \"name\": rolesStartingWithNumber[0] // whatever state is selected\n             }\n         }\n     });\n        }\n\n\t\n\t},\n\tbefore_save(frm){\n\t    if (frm.doc.owner != frappe.session.user){\n            frappe.throw(__('You cannot Save this. Only by MDR Created user'))\t    }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Delivery Note",
+  "enabled": 1,
+  "modified": "2023-12-21 08:44:22.159146",
+  "module": "Alhoda",
+  "name": "Naming Series Delivery Order",
+  "script": "frappe.ui.form.on('Delivery Note', {\n\trefresh(frm) {\n\t\t// your code here\n\t\tfrappe.msgprint(frm.doc.is_return)\n\t},\n\t\tvalidate(frm){\n\t    set_naming(frm)\n\t    frappe.msgprint(frm.doc.is_return)\n\t},\n})\n\nfunction set_naming(frm) {\n    if (frm.doc.cost_center && frm.doc.is_return === 0) {\n        frm.set_value(\"naming_series\", frm.doc.cost_center.charAt(0) + 'DO' + '-.YY.-.#####');\n    } else {\n        frm.set_value(\"naming_series\", frm.doc.cost_center.charAt(0) + 'GRN' + '-.YY.-.####');\n    }\n}",
   "view": "Form"
  }
 ]

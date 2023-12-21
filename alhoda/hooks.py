@@ -113,6 +113,10 @@ fixtures = [
     "Custom Field","Client Script",
     {"dt": "Role","filters":[["name","in",["Test Role","Stock Controller","Store Keeper","Showroom Store Keeper","Sales Coordinator","Sales Executives","Showroom Manager"]]]},
     {"dt": "Custom DocPerm"},
+    {"dt": "User Permission"},
+    {"dt": "Document Naming Rule"},
+    {"dt": "Workflow State"},
+    {"dt": "Workflow"},
     {"dt": "Workspace","filters":[["title","in",["Showroom Manager","Sales User"]]]},
 ]
 # DocType Class
