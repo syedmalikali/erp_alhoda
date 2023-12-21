@@ -10,12 +10,12 @@
     "value": "RYD - AH"
    }
   ],
-  "counter": 1,
+  "counter": 3,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Quotation",
-  "modified": "2023-12-21 09:29:07.040994",
+  "modified": "2023-12-21 12:40:14.709088",
   "name": "b3ae3ef95a",
   "prefix": "RQ-.YY.-",
   "prefix_digits": 4,
@@ -32,14 +32,430 @@
     "value": "KHO - AH"
    }
   ],
-  "counter": 4,
+  "counter": 5,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Quotation",
-  "modified": "2023-12-21 09:23:28.113072",
+  "modified": "2023-12-21 10:46:07.714363",
   "name": "d9216dd2a0",
   "prefix": "KQ-.YY.-",
+  "prefix_digits": 4,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "2a59bc42cc",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "KHO - AH"
+   },
+   {
+    "condition": "=",
+    "field": "is_return",
+    "parent": "2a59bc42cc",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "0"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Delivery Note",
+  "modified": "2023-12-21 10:05:01.314762",
+  "name": "2a59bc42cc",
+  "prefix": "KDO-.YY.-",
+  "prefix_digits": 5,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "51d60d753c",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "KHO - AH"
+   },
+   {
+    "condition": "=",
+    "field": "is_return",
+    "parent": "51d60d753c",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "1"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Delivery Note",
+  "modified": "2023-12-21 09:47:15.812603",
+  "name": "51d60d753c",
+  "prefix": "KGR-.YY.-",
+  "prefix_digits": 5,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "4806ba306c",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "RYD - AH"
+   },
+   {
+    "condition": "=",
+    "field": "is_return",
+    "parent": "4806ba306c",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "0"
+   }
+  ],
+  "counter": 5,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Delivery Note",
+  "modified": "2023-12-21 12:22:37.872400",
+  "name": "4806ba306c",
+  "prefix": "RDO-.YY.-",
+  "prefix_digits": 5,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "8d6063c8ef",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "RYD - AH"
+   },
+   {
+    "condition": "=",
+    "field": "is_return",
+    "parent": "8d6063c8ef",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "1"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Delivery Note",
+  "modified": "2023-12-21 09:48:15.906903",
+  "name": "8d6063c8ef",
+  "prefix": "RGR-.YY.-",
+  "prefix_digits": 5,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "5365cfc810",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "KHO - AH"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Sales Order",
+  "modified": "2023-12-21 09:50:58.929557",
+  "name": "5365cfc810",
+  "prefix": "KSO-.YY.-",
+  "prefix_digits": 4,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "9fe7dc29c4",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "RYD - AH"
+   }
+  ],
+  "counter": 5,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Sales Order",
+  "modified": "2023-12-21 12:51:30.565648",
+  "name": "9fe7dc29c4",
+  "prefix": "RSO-.YY.-",
+  "prefix_digits": 4,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "6088dad27c",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "RYD - AH"
+   },
+   {
+    "condition": "=",
+    "field": "is_return",
+    "parent": "6088dad27c",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "0"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Sales Invoice",
+  "modified": "2023-12-21 12:02:00.443948",
+  "name": "6088dad27c",
+  "prefix": "RSI-.YY.-",
+  "prefix_digits": 5,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "cec6506360",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "KHO - AH"
+   },
+   {
+    "condition": "=",
+    "field": "is_return",
+    "parent": "cec6506360",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "1"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Sales Invoice",
+  "modified": "2023-12-21 09:59:03.571796",
+  "name": "cec6506360",
+  "prefix": "KCN-.YY.-",
+  "prefix_digits": 5,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "f86ce88c6a",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "RYD - AH"
+   },
+   {
+    "condition": "=",
+    "field": "is_return",
+    "parent": "f86ce88c6a",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "1"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Sales Invoice",
+  "modified": "2023-12-21 10:00:53.702965",
+  "name": "f86ce88c6a",
+  "prefix": "RCN-.YY.-",
+  "prefix_digits": 5,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "d53b006d4e",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "KHO - AH"
+   },
+   {
+    "condition": "=",
+    "field": "is_return",
+    "parent": "d53b006d4e",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "0"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Sales Invoice",
+  "modified": "2023-12-21 10:01:46.522839",
+  "name": "d53b006d4e",
+  "prefix": "KSI-.YY.-",
+  "prefix_digits": 5,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "5f8df201a0",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "KHO - AH"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Purchase Order",
+  "modified": "2023-12-21 10:28:29.112155",
+  "name": "5f8df201a0",
+  "prefix": "KPO-.YY.-",
+  "prefix_digits": 4,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "27ad356633",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "RYD - AH"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Purchase Order",
+  "modified": "2023-12-21 10:28:19.463463",
+  "name": "27ad356633",
+  "prefix": "RPO-.YY.-",
+  "prefix_digits": 4,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "1e8b7a5ab4",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "RYD - AH"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Purchase Receipt",
+  "modified": "2023-12-21 10:29:06.270793",
+  "name": "1e8b7a5ab4",
+  "prefix": "RPR-.YY.-",
+  "prefix_digits": 4,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "000ef4a0be",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "KHO - AH"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Purchase Receipt",
+  "modified": "2023-12-21 10:29:22.382957",
+  "name": "000ef4a0be",
+  "prefix": "KPR-.YY.-",
+  "prefix_digits": 4,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "4666863fd9",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "KHO - AH"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Purchase Invoice",
+  "modified": "2023-12-21 10:29:42.299067",
+  "name": "4666863fd9",
+  "prefix": "KPI-.YY.-",
+  "prefix_digits": 4,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "cost_center",
+    "parent": "1f8967f6f1",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "RYD - AH"
+   }
+  ],
+  "counter": 2,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Purchase Invoice",
+  "modified": "2023-12-21 12:37:36.776335",
+  "name": "1f8967f6f1",
+  "prefix": "RPI-.YY.-",
   "prefix_digits": 4,
   "priority": 0
  }
