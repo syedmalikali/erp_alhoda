@@ -17411,7 +17411,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"J_uG-iy7Qu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Sales Manager</span>\",\"col\":12}}]",
+  "content": "[{\"id\":\"J_uG-iy7Qu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Sales Manager</span>\",\"col\":12}},{\"id\":\"a7MBIIzwf7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item Enquiry\",\"col\":3}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -17422,7 +17422,7 @@
   "is_hidden": 0,
   "label": "Sales Manager",
   "links": [],
-  "modified": "2023-12-21 13:14:01.245365",
+  "modified": "2023-12-24 08:29:56.373331",
   "module": null,
   "name": "Sales Manager",
   "number_cards": [],
@@ -17439,7 +17439,24 @@
    }
   ],
   "sequence_id": 46.0,
-  "shortcuts": [],
+  "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Item Enquiry",
+    "link_to": "Item Enquiry",
+    "parent": "Sales Manager",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "Report",
+    "url": null
+   }
+  ],
   "title": "Sales Manager"
  },
  {

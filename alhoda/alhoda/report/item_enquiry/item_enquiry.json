@@ -6,10 +6,10 @@
  "docstatus": 0,
  "doctype": "Report",
  "filters": [],
- "idx": 0,
+ "idx": 15,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2023-12-12 12:07:34.190309",
+ "modified": "2023-12-24 08:28:30.591109",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Item Enquiry",
@@ -30,6 +30,9 @@
   },
   {
    "role": "Sales Executives"
+  },
+  {
+   "role": "Sales Manager"
   }
  ]
 }

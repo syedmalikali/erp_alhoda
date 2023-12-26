@@ -14,11 +14,11 @@
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Item",
-  "enabled": 1,
-  "modified": "2023-12-06 20:30:25.491570",
+  "enabled": 0,
+  "modified": "2023-12-26 10:32:23.892863",
   "module": "Alhoda",
   "name": "Item List View",
-  "script": "frappe.listview_settings['Item'] = { \r\n    add_fields: [\"custom_item_name_arabic\"],\r\n\trefresh: function(listview) {\r\n\t    \r\n        console.log('malik')\r\n\t\t\r\n\t\r\n\t} ,\r\n  \r\n\r\n};",
+  "script": "frappe.listview_settings['Item'] = { \r\n\r\n    button: {\r\n        show: function(doc) {\r\n            return true;\r\n        },\r\n        get_label: function() {\r\n            return __('PDF');\r\n        },\r\n        get_description: function(doc) {\r\n            return __('Print {0}', [doc.name])\r\n        },\r\n        action: function(doc) {\r\n            //frappe.set_route(\"/app/print/Invoice/\" + doc.name);\r\n            \r\n            var objWindowOpenResult = window.open(frappe.urllib.get_full_url(\"/api/method/frappe.utils.print_format.download_pdf?\"\r\n              + \"doctype=\" + encodeURIComponent(\"Item\")\r\n              + \"&name=\" + encodeURIComponent(doc.name)\r\n              + \"&trigger_print=0\"\r\n              + \"&format=invoice print format\"\r\n              + \"&no_letterhead=0\"\r\n              + \"&_lang=en\"\r\n            ));\r\n            if(!objWindowOpenResult) {\r\n              msgprint(__(\"Please set permission for pop-up windows in your browser!\")); return;\r\n            }\r\n        }\r\n    }\r\n}",
   "view": "List"
  },
  {
@@ -70,10 +70,10 @@
   "doctype": "Client Script",
   "dt": "Quotation",
   "enabled": 1,
-  "modified": "2023-12-21 09:25:17.112588",
+  "modified": "2023-12-21 13:58:18.805050",
   "module": "Alhoda",
   "name": "Naming Series Quotation",
-  "script": "frappe.ui.form.on('Quotation', {\nonload_post_render(frm){\n        frm.remove_custom_button('Opportunity', 'Get Items From');\n        \n    },\n\trefresh(frm) {\n\t\t   document.getElementsByClassName(\"form-tabs-list\")[0].style.backgroundColor = 'cadetblue';\n// \tsetTimeout(() => {\n//         console.debug(\"Removing Duplicate Button\");\n  \n//         $('a.grey-link').each(function() {\n//             // Comparing data-label instead of Button Text\n//             var id = $(this).children(':first-child').attr('data-label'); \n//             if(id == 'Print'){\n//                 $(this).remove();\n//                 return false // exit loop\n//             }\n//         });\n        \n\t    \n// \t}, 100);\n    \n\n\t},\n\n   \n})\n\n",
+  "script": "frappe.ui.form.on('Quotation', {\nonload_post_render(frm){\n        frm.remove_custom_button('Opportunity', 'Get Items From');\n        \n    },\n\trefresh(frm) {\n\t     // document.getElementsByClassName(\"form-tabs-list\")[0].style.backgroundColor = 'cadetblue';\n// \tsetTimeout(() => {\n//         console.debug(\"Removing Duplicate Button\");\n  \n//         $('a.grey-link').each(function() {\n//             // Comparing data-label instead of Button Text\n//             var id = $(this).children(':first-child').attr('data-label'); \n//             if(id == 'Print'){\n//                 $(this).remove();\n//                 return false // exit loop\n//             }\n//         });\n        \n\t    \n// \t}, 100);\n    \n\n\t},\n\n   \n})\n\n",
   "view": "Form"
  },
  {
@@ -85,6 +85,17 @@
   "module": "Alhoda",
   "name": "WH Restriction Stock Entry",
   "script": "frappe.ui.form.on('Stock Entry', {\n\trefresh(frm) {\n\t    frm.page.wrapper.find(\".comment-box\").css({'display':'none'});\n\t    frm.page.wrapper.find(\".new-timeline\").css({'display':'none'});\n\t    \n\t    \n\t    \n\t    var userRoles = frappe.user_roles;\n\n        // Filter roles starting with a number\n        var rolesStartingWithNumber = userRoles.filter(function(role) {\n            return /^\\d/.test(role);\n        });\n        if (rolesStartingWithNumber[0]){\n            \tfrm.set_query(\"from_warehouse\", (doc) => {\n         return {\n             filters: {\n                 \"name\": rolesStartingWithNumber[0] // whatever state is selected\n             }\n         }\n     });\n        }\n\n\t\n\t},\n\tbefore_save(frm){\n\t    if (frm.doc.owner != frappe.session.user){\n            frappe.throw(__('You cannot Save this. Only by MDR Created user'))\t    }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Purchase Receipt",
+  "enabled": 1,
+  "modified": "2023-12-24 12:24:32.163633",
+  "module": "Alhoda",
+  "name": "Warehouse Restriction in Purchase Receipt",
+  "script": "frappe.ui.form.on('Purchase Receipt', {\n\trefresh(frm) {\n\t chkWarehouse(frm);\n\t},\n\tcost_center(frm){\n\t        frm.set_query(\"set_warehouse\", function() {\n        return {\n            \"filters\": {\n                \"parent_warehouse\": frm.doc.cost_center,\n                \n            }\n        };\n    });\n    \n\t}\n})\n\nfunction chkWarehouse(frm) {\n   \n    frm.set_query('warehouse', 'items', function (doc, cdt, cdn) {\n        var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\n        var filters = erpnext.queries.warehouse(frm.doc);\n         var d = locals[cdt][cdn];\n        if (chk === undefined) {\n                frappe.msgprint('Please specify: Branch. It is needed to fetch Item Details.')\n    }\n        if (chk) {\n            $.extend(filters, {\n                \"query\": \"erpnext.controllers.queries.warehouse_query\",\n                \"filters\": [\n                    [\"Warehouse\", \"parent_warehouse\", \"=\", chk],\n                    [\"Bin\",\"item_code\",\"=\",d.item_code]\n                    ]\n            });\n        }\n       \n       \n        return filters;\n    });\n\n \n}\n",
   "view": "Form"
  }
 ]

@@ -8,19 +8,6 @@
   "for_value": "RYD - AH",
   "hide_descendants": 0,
   "is_default": 1,
-  "modified": "2023-12-10 18:33:17.209785",
-  "name": "8c74bdfb4b",
-  "user": "jose@alhodaco.com"
- },
- {
-  "allow": "Cost Center",
-  "applicable_for": null,
-  "apply_to_all_doctypes": 1,
-  "docstatus": 0,
-  "doctype": "User Permission",
-  "for_value": "RYD - AH",
-  "hide_descendants": 0,
-  "is_default": 1,
   "modified": "2023-12-14 13:13:53.327927",
   "name": "cb7c898034",
   "user": "sharfudeen@alhoadco.com"
@@ -98,8 +85,8 @@
   "doctype": "User Permission",
   "for_value": "KHO - AH",
   "hide_descendants": 0,
-  "is_default": 0,
-  "modified": "2023-12-14 13:14:40.624930",
+  "is_default": 1,
+  "modified": "2023-12-24 08:22:02.205536",
   "name": "5be7da604d",
   "user": "farhan@alhodaco.com"
  },
@@ -137,8 +124,8 @@
   "doctype": "User Permission",
   "for_value": "KHO - AH",
   "hide_descendants": 0,
-  "is_default": 0,
-  "modified": "2023-12-14 13:15:37.167750",
+  "is_default": 1,
+  "modified": "2023-12-24 08:21:45.097888",
   "name": "d39cdb8e85",
   "user": "babu@alhodaco.com"
  },
@@ -193,5 +180,18 @@
   "modified": "2023-12-14 23:20:35.468666",
   "name": "12396de2d1",
   "user": "sharfudeen@alhoadco.com"
+ },
+ {
+  "allow": "Cost Center",
+  "applicable_for": null,
+  "apply_to_all_doctypes": 1,
+  "docstatus": 0,
+  "doctype": "User Permission",
+  "for_value": "RYD - AH",
+  "hide_descendants": 0,
+  "is_default": 1,
+  "modified": "2023-12-23 11:41:32.513814",
+  "name": "84c14d9bc4",
+  "user": "jose@alhodaco.com"
  }
 ]

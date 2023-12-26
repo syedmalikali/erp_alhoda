@@ -3,6 +3,14 @@
 
 frappe.query_reports["Item Enquiry For Stock User"] = {
 	"filters": [
+		{
+			"fieldname":"item_code",
+			"label":"Item Code",
+			"fieldtype":"Data",
+			"Default":"AB",
+			"width":"100",
+			"reqd":1,
+		},
 
 	]
 };
