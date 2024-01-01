@@ -62,12 +62,12 @@
     "value": "0"
    }
   ],
-  "counter": 2,
+  "counter": 7,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Delivery Note",
-  "modified": "2023-12-24 13:16:06.535536",
+  "modified": "2023-12-28 08:49:56.359603",
   "name": "2a59bc42cc",
   "prefix": "KDO-.YY.-",
   "prefix_digits": 5,
@@ -92,12 +92,12 @@
     "value": "1"
    }
   ],
-  "counter": 0,
+  "counter": 6,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Delivery Note",
-  "modified": "2023-12-21 09:47:15.812603",
+  "modified": "2023-12-28 08:54:12.662111",
   "name": "51d60d753c",
   "prefix": "KGR-.YY.-",
   "prefix_digits": 5,
@@ -152,12 +152,12 @@
     "value": "1"
    }
   ],
-  "counter": 0,
+  "counter": 1,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Delivery Note",
-  "modified": "2023-12-21 09:48:15.906903",
+  "modified": "2023-12-27 11:51:41.975776",
   "name": "8d6063c8ef",
   "prefix": "RGR-.YY.-",
   "prefix_digits": 5,
@@ -256,12 +256,12 @@
     "value": "1"
    }
   ],
-  "counter": 0,
+  "counter": 2,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Sales Invoice",
-  "modified": "2023-12-21 09:59:03.571796",
+  "modified": "2023-12-28 08:54:05.622557",
   "name": "cec6506360",
   "prefix": "KCN-.YY.-",
   "prefix_digits": 5,
@@ -286,12 +286,12 @@
     "value": "1"
    }
   ],
-  "counter": 0,
+  "counter": 2,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Sales Invoice",
-  "modified": "2023-12-21 10:00:53.702965",
+  "modified": "2023-12-27 11:52:58.361106",
   "name": "f86ce88c6a",
   "prefix": "RCN-.YY.-",
   "prefix_digits": 5,
@@ -316,12 +316,12 @@
     "value": "0"
    }
   ],
-  "counter": 0,
+  "counter": 5,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Sales Invoice",
-  "modified": "2023-12-21 10:01:46.522839",
+  "modified": "2023-12-28 08:51:02.835619",
   "name": "d53b006d4e",
   "prefix": "KSI-.YY.-",
   "prefix_digits": 5,
@@ -382,12 +382,12 @@
     "value": "RYD - AH"
    }
   ],
-  "counter": 2,
+  "counter": 3,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Purchase Receipt",
-  "modified": "2023-12-24 12:13:35.704996",
+  "modified": "2023-12-31 09:40:09.387884",
   "name": "1e8b7a5ab4",
   "prefix": "RPR-.YY.-",
   "prefix_digits": 4,
@@ -404,12 +404,12 @@
     "value": "KHO - AH"
    }
   ],
-  "counter": 0,
+  "counter": 5,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Purchase Receipt",
-  "modified": "2023-12-21 10:29:22.382957",
+  "modified": "2023-12-27 12:03:26.163361",
   "name": "000ef4a0be",
   "prefix": "KPR-.YY.-",
   "prefix_digits": 4,
@@ -426,12 +426,12 @@
     "value": "KHO - AH"
    }
   ],
-  "counter": 0,
+  "counter": 3,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Purchase Invoice",
-  "modified": "2023-12-21 10:29:42.299067",
+  "modified": "2023-12-27 12:02:06.463188",
   "name": "4666863fd9",
   "prefix": "KPI-.YY.-",
   "prefix_digits": 4,
@@ -480,5 +480,461 @@
   "prefix": "CC-.YY.",
   "prefix_digits": 4,
   "priority": 2
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "efcfe35201",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "efcfe35201",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "01 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "efcfe35201",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "02 - AH"
+   }
+  ],
+  "counter": 3,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:23:47.614279",
+  "name": "efcfe35201",
+  "prefix": "TR-AK-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "887121df81",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "887121df81",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "01 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "887121df81",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "06 - AH"
+   }
+  ],
+  "counter": 5,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:24:37.267092",
+  "name": "887121df81",
+  "prefix": "TR-AR-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 1
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "b9b299ea1e",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "b9b299ea1e",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "01 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "b9b299ea1e",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "11 - AH"
+   }
+  ],
+  "counter": 2,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:35:37.395174",
+  "name": "b9b299ea1e",
+  "prefix": "TR-AS-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "12c791c9c8",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "12c791c9c8",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "06 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "12c791c9c8",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "01 - AH"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:28:46.704413",
+  "name": "12c791c9c8",
+  "prefix": "TR-RA-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "3b633161da",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "3b633161da",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "06 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "3b633161da",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "02 - AH"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:29:36.189601",
+  "name": "3b633161da",
+  "prefix": "TR-RK-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "7a424748a6",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "7a424748a6",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "06 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "7a424748a6",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "11 - AH"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:36:02.450435",
+  "name": "7a424748a6",
+  "prefix": "TR-RS-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "a00802b74f",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "a00802b74f",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "02 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "a00802b74f",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "01 - AH"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:33:49.513299",
+  "name": "a00802b74f",
+  "prefix": "TR-KA-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "8962da67e7",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "8962da67e7",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "02 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "8962da67e7",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "06 - AH"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:34:06.158847",
+  "name": "8962da67e7",
+  "prefix": "TR-KR-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "e2c799ed28",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "e2c799ed28",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "02 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "e2c799ed28",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "11 - AH"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:35:50.281911",
+  "name": "e2c799ed28",
+  "prefix": "TR-KS-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "19a27d3ed6",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "19a27d3ed6",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "11 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "19a27d3ed6",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "01 - AH"
+   }
+  ],
+  "counter": 2,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-31 09:37:00.999108",
+  "name": "19a27d3ed6",
+  "prefix": "TR-SA-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "8ca7f0fa71",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "8ca7f0fa71",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "11 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "8ca7f0fa71",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "02 - AH"
+   }
+  ],
+  "counter": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:42:11.515066",
+  "name": "8ca7f0fa71",
+  "prefix": "TR-SK-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
+ },
+ {
+  "conditions": [
+   {
+    "condition": "=",
+    "field": "stock_entry_type",
+    "parent": "685fd3a3bd",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "Material Transfer"
+   },
+   {
+    "condition": "=",
+    "field": "from_warehouse",
+    "parent": "685fd3a3bd",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "11 - AH"
+   },
+   {
+    "condition": "=",
+    "field": "to_warehouse",
+    "parent": "685fd3a3bd",
+    "parentfield": "conditions",
+    "parenttype": "Document Naming Rule",
+    "value": "06 - AH"
+   }
+  ],
+  "counter": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Document Naming Rule",
+  "document_type": "Stock Entry",
+  "modified": "2023-12-28 12:37:35.470098",
+  "name": "685fd3a3bd",
+  "prefix": "TR-SR-.MM..YY.-",
+  "prefix_digits": 3,
+  "priority": 0
  }
 ]

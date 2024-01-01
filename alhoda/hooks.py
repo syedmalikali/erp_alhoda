@@ -113,7 +113,6 @@ fixtures = [
     "Custom Field","Client Script",
     {"dt": "Role"},
     {"dt": "Custom DocPerm"},
-    {"dt": "User Permission"},
     {"dt": "Document Naming Rule"},
     {"dt": "Workflow State"},
     {"dt": "Workflow"},

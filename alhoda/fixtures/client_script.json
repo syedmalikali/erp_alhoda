@@ -14,8 +14,8 @@
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Item",
-  "enabled": 0,
-  "modified": "2023-12-26 10:32:23.892863",
+  "enabled": 1,
+  "modified": "2023-12-27 08:29:13.876231",
   "module": "Alhoda",
   "name": "Item List View",
   "script": "frappe.listview_settings['Item'] = { \r\n\r\n    button: {\r\n        show: function(doc) {\r\n            return true;\r\n        },\r\n        get_label: function() {\r\n            return __('PDF');\r\n        },\r\n        get_description: function(doc) {\r\n            return __('Print {0}', [doc.name])\r\n        },\r\n        action: function(doc) {\r\n            //frappe.set_route(\"/app/print/Invoice/\" + doc.name);\r\n            \r\n            var objWindowOpenResult = window.open(frappe.urllib.get_full_url(\"/api/method/frappe.utils.print_format.download_pdf?\"\r\n              + \"doctype=\" + encodeURIComponent(\"Item\")\r\n              + \"&name=\" + encodeURIComponent(doc.name)\r\n              + \"&trigger_print=0\"\r\n              + \"&format=invoice print format\"\r\n              + \"&no_letterhead=0\"\r\n              + \"&_lang=en\"\r\n            ));\r\n            if(!objWindowOpenResult) {\r\n              msgprint(__(\"Please set permission for pop-up windows in your browser!\")); return;\r\n            }\r\n        }\r\n    }\r\n}",
@@ -37,10 +37,10 @@
   "doctype": "Client Script",
   "dt": "Sales Invoice",
   "enabled": 1,
-  "modified": "2023-12-21 10:24:38.378987",
+  "modified": "2023-12-27 13:21:17.005048",
   "module": "Alhoda",
   "name": "warehouse Restriction Sales Invoice",
-  "script": "frappe.ui.form.on('Sales Invoice', {\n   refresh(frm) {\n        chkWarehouse(frm);\n    },\n    cost_center(frm) {\n        chkWarehouse(frm);\n    \n    },\n        onload_post_render(frm){\n        \n        rem_buttons(frm)\n    },\n});\nfunction rem_buttons(frm){\n    frm.remove_custom_button('Fetch Timesheet');\n}\nfunction chkWarehouse(frm) {\n    var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\n    frm.set_query('warehouse', 'items', function (doc, cdt, cdn) {\n        var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\n        var filters = erpnext.queries.warehouse(frm.doc);\n        if (chk === undefined) {\n                frappe.msgprint('Please specify: Branch. It is needed to fetch Item Details.')\n    }\n\n        var d = locals[cdt][cdn];\n        if (chk) {\n            $.extend(filters, {\n                \"query\": \"erpnext.controllers.queries.warehouse_query\",\n                \"filters\": [\n                    [\"Warehouse\", \"parent_warehouse\", \"=\", chk],\n                    [\"Bin\",\"item_code\",\"=\",d.item_code]\n                    ]\n            });\n        }         \n        return filters;\n    });\n\n    frm.set_query('set_warehouse', function (doc, cdt, cdn) {\n        \n        var d = locals[cdt][cdn];\n        return {\n            \"filters\": {\n                \"parent_warehouse\": chk,\n                \"is_group\":0\n            }\n        };\n    });\n}\n",
+  "script": "frappe.ui.form.on('Sales Invoice', {\n   refresh(frm) {\n        chkWarehouse(frm);\n        rem_buttons(frm)\n    },\n\n    cost_center(frm) {\n        chkWarehouse(frm);\n    \n    },\n        onload_post_render(frm){\n        \n        rem_buttons(frm)\n    },\n});\nfunction rem_buttons(frm){\n    console.log('in')\n    frm.remove_custom_button('Fetch Timesheet');\n    frm.remove_custom_button('Sales Order', 'Get Items From');\n    frm.remove_custom_button('Quotation', 'Get Items From');\n}\nfunction chkWarehouse(frm) {\n    var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\n    frm.set_query('warehouse', 'items', function (doc, cdt, cdn) {\n        var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\n        var filters = erpnext.queries.warehouse(frm.doc);\n        if (chk === undefined) {\n                frappe.msgprint('Please specify: Branch. It is needed to fetch Item Details.')\n    }\n\n        var d = locals[cdt][cdn];\n        if (chk) {\n            $.extend(filters, {\n                \"query\": \"erpnext.controllers.queries.warehouse_query\",\n                \"filters\": [\n                    [\"Warehouse\", \"parent_warehouse\", \"=\", chk],\n                    [\"Bin\",\"item_code\",\"=\",d.item_code]\n                    ]\n            });\n        }         \n        return filters;\n    });\n\n    frm.set_query('set_warehouse', function (doc, cdt, cdn) {\n        \n        var d = locals[cdt][cdn];\n        return {\n            \"filters\": {\n                \"parent_warehouse\": chk,\n                \"is_group\":0\n            }\n        };\n    });\n}\n",
   "view": "Form"
  },
  {
@@ -48,10 +48,10 @@
   "doctype": "Client Script",
   "dt": "Delivery Note",
   "enabled": 1,
-  "modified": "2023-12-21 10:20:41.484339",
+  "modified": "2023-12-27 16:52:19.605757",
   "module": "Alhoda",
   "name": "Warehouse Restriction Delivery Note",
-  "script": "frappe.ui.form.on('Delivery Note', {\r\n    refresh(frm) {\r\n        chkWarehouse(frm);\r\n    },\r\n    onload_post_render(frm){\r\n        \r\n        rem_buttons(frm)\r\n    },\r\n\r\n});\r\nfunction rem_buttons(frm){\r\n    frm.remove_custom_button('Shipment', 'Create');\r\n    frm.remove_custom_button('Installation Note', 'Create');\r\n    frm.remove_custom_button('Delivery Trip', 'Create');\r\n    frm.remove_custom_button('Sales Invoice', 'Create');\r\n    frm.remove_custom_button('Stock Ledger', 'View');\r\n    frm.remove_custom_button('Accounting Ledger', 'View');\r\n    frm.remove_custom_button('Close', 'Status');\r\n}\r\nfunction chkWarehouse(frm) {\r\n   \r\n    frm.set_query('warehouse', 'items', function (doc, cdt, cdn) {\r\n        var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\r\n        var filters = erpnext.queries.warehouse(frm.doc);\r\n         var d = locals[cdt][cdn];\r\n        if (chk === undefined) {\r\n                frappe.msgprint('Please specify: Branch. It is needed to fetch Item Details.')\r\n    }\r\n        if (chk) {\r\n            $.extend(filters, {\r\n                \"query\": \"erpnext.controllers.queries.warehouse_query\",\r\n                \"filters\": [\r\n                    [\"Warehouse\", \"parent_warehouse\", \"=\", chk],\r\n                    [\"Bin\",\"item_code\",\"=\",d.item_code]\r\n                    ]\r\n            });\r\n        }\r\n       \r\n       \r\n        return filters;\r\n    });\r\n\r\n    frm.set_query('set_warehouse', function (doc, cdt, cdn) {\r\n        \r\n        var d = locals[cdt][cdn];\r\n        return {\r\n            \"filters\": {\r\n                \"parent_warehouse\": chk,\r\n                \"is_group\":0\r\n            }\r\n        };\r\n    });\r\n}\r\n",
+  "script": "frappe.ui.form.on('Delivery Note', {\r\n    refresh(frm) {\r\n        chkWarehouse(frm);\r\n    },\r\n    onload_post_render(frm){\r\n        \r\n        rem_buttons(frm)\r\n    },\r\n    before_save(frm){\r\n//       frappe.call({\r\n// \tmethod: \"alhoda.api.get_last_item\",\r\n// \tcallback: (response) => {\r\n// \t\tconsole.log(response.message);\r\n// \t}})\r\n         frm.doc.items.forEach(function(item) {\r\n           console.log(item.item_code)  \r\n         })\r\n        \r\n    }})\r\n\t\r\n\t\r\n\t\r\n\r\n    \r\n\r\n\r\nfunction rem_buttons(frm){\r\n    frm.remove_custom_button('Shipment', 'Create');\r\n    frm.remove_custom_button('Credit Note', 'Create');\r\n    frm.remove_custom_button('Installation Note', 'Create');\r\n    frm.remove_custom_button('Delivery Trip', 'Create');\r\n    frm.remove_custom_button('Sales Invoice', 'Create');\r\n    frm.remove_custom_button('Stock Ledger', 'View');\r\n    frm.remove_custom_button('Accounting Ledger', 'View');\r\n    frm.remove_custom_button('Close', 'Status');\r\n}\r\nfunction chkWarehouse(frm) {\r\n   \r\n    frm.set_query('warehouse', 'items', function (doc, cdt, cdn) {\r\n        var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\r\n        var filters = erpnext.queries.warehouse(frm.doc);\r\n         var d = locals[cdt][cdn];\r\n        if (chk === undefined) {\r\n                frappe.msgprint('Please specify: Branch. It is needed to fetch Item Details.')\r\n    }\r\n        if (chk) {\r\n            $.extend(filters, {\r\n                \"query\": \"erpnext.controllers.queries.warehouse_query\",\r\n                \"filters\": [\r\n                    [\"Warehouse\", \"parent_warehouse\", \"=\", chk],\r\n                    [\"Bin\",\"item_code\",\"=\",d.item_code]\r\n                    ]\r\n            });\r\n        }\r\n       \r\n       \r\n        return filters;\r\n    });\r\n\r\n    frm.set_query('set_warehouse', function (doc, cdt, cdn) {\r\n        \r\n        var d = locals[cdt][cdn];\r\n        return {\r\n            \"filters\": {\r\n                \"parent_warehouse\": chk,\r\n                \"is_group\":0\r\n            }\r\n        };\r\n    });\r\n}\r\n",
   "view": "Form"
  },
  {
@@ -81,10 +81,10 @@
   "doctype": "Client Script",
   "dt": "Stock Entry",
   "enabled": 1,
-  "modified": "2023-12-15 22:56:12.032602",
+  "modified": "2023-12-28 13:14:55.150955",
   "module": "Alhoda",
   "name": "WH Restriction Stock Entry",
-  "script": "frappe.ui.form.on('Stock Entry', {\n\trefresh(frm) {\n\t    frm.page.wrapper.find(\".comment-box\").css({'display':'none'});\n\t    frm.page.wrapper.find(\".new-timeline\").css({'display':'none'});\n\t    \n\t    \n\t    \n\t    var userRoles = frappe.user_roles;\n\n        // Filter roles starting with a number\n        var rolesStartingWithNumber = userRoles.filter(function(role) {\n            return /^\\d/.test(role);\n        });\n        if (rolesStartingWithNumber[0]){\n            \tfrm.set_query(\"from_warehouse\", (doc) => {\n         return {\n             filters: {\n                 \"name\": rolesStartingWithNumber[0] // whatever state is selected\n             }\n         }\n     });\n        }\n\n\t\n\t},\n\tbefore_save(frm){\n\t    if (frm.doc.owner != frappe.session.user){\n            frappe.throw(__('You cannot Save this. Only by MDR Created user'))\t    }\n\t}\n})",
+  "script": "frappe.ui.form.on('Stock Entry', {\n\trefresh(frm) {\n\t    \nfrappe.listview_settings['Stock Entry'] = {\n    onload : function(listview) {\n        frappe.route_options = {\n            \"name\": ['like', \"TR-SK\"]\n          };\n        listview.refresh();\n    }\n};\n\t    frm.page.wrapper.find(\".comment-box\").css({'display':'none'});\n\t    frm.page.wrapper.find(\".new-timeline\").css({'display':'none'});\n\t    \n\t    \n\t    \n\t    var userRoles = frappe.user_roles;\n\n        // Filter roles starting with a number\n        var rolesStartingWithNumber = userRoles.filter(function(role) {\n            return /^\\d/.test(role);\n        });\n        if (rolesStartingWithNumber[0]){\n            \tfrm.set_query(\"from_warehouse\", (doc) => {\n         return {\n             filters: {\n                 \"name\": rolesStartingWithNumber[0] // whatever state is selected\n             }\n         }\n     });\n        }\n\n\t\n\t},\n\tbefore_save(frm){\n\t    if (frm.doc.owner != frappe.session.user){\n            frappe.throw(__('You cannot Save this. Only by MDR Created user'))\t    }\n\t}\n})\n",
   "view": "Form"
  },
  {
@@ -97,5 +97,38 @@
   "name": "Warehouse Restriction in Purchase Receipt",
   "script": "frappe.ui.form.on('Purchase Receipt', {\n\trefresh(frm) {\n\t chkWarehouse(frm);\n\t},\n\tcost_center(frm){\n\t        frm.set_query(\"set_warehouse\", function() {\n        return {\n            \"filters\": {\n                \"parent_warehouse\": frm.doc.cost_center,\n                \n            }\n        };\n    });\n    \n\t}\n})\n\nfunction chkWarehouse(frm) {\n   \n    frm.set_query('warehouse', 'items', function (doc, cdt, cdn) {\n        var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\n        var filters = erpnext.queries.warehouse(frm.doc);\n         var d = locals[cdt][cdn];\n        if (chk === undefined) {\n                frappe.msgprint('Please specify: Branch. It is needed to fetch Item Details.')\n    }\n        if (chk) {\n            $.extend(filters, {\n                \"query\": \"erpnext.controllers.queries.warehouse_query\",\n                \"filters\": [\n                    [\"Warehouse\", \"parent_warehouse\", \"=\", chk],\n                    [\"Bin\",\"item_code\",\"=\",d.item_code]\n                    ]\n            });\n        }\n       \n       \n        return filters;\n    });\n\n \n}\n",
   "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Sales Invoice",
+  "enabled": 1,
+  "modified": "2023-12-27 12:04:49.719819",
+  "module": "Alhoda",
+  "name": "Return DO For Credite Note",
+  "script": "function create_return(frm,donumber){\n    frappe.db.insert({\n    'doctype': 'Delivery Note',\n    'customer': frm.doc.customer,\n    'cost_center':frm.doc.cost_center,\n    // 'set_warehouse': frm.doc.set_warehouse,\n    'selling_price_list': 'Standard Selling',\n    'is_return':1,\n    'return_against':donumber,\n    'docstatus': 1,\n    'status':'Closed',\n    'items': frm.doc.items\n        .filter(item => item.delivery_note === donumber) // Filter items with item_code \"0001\"\n        .map(item => {\n            return {\n                'item_code': item.item_code,\n                'dn_detail':item.dn_detail,\n                'item_name': item.item_name,\n                'rate': item.rate,\n                'qty': item.qty,\n                'warehouse' :item.warehouse,\n                'against_sales_invoice': frm.doc.name,\n                // 'so_detail': item.name\n            };\n        })\n}).then(doc => {\n    console.log(doc.name);\n    frappe.show_alert(\"Delivery Note is created successfully\");\n});\n\n}\nfunction update_dnote(dnumber){\n    frappe.db.get_doc('Delivery Note', dnumber).then(dn => {\n\t\t\t\t\tconsole.log(dn)\n\t\t\t\t});\n}\n\nfrappe.ui.form.on('Sales Invoice', {\n\ton_submit(frm) {\n\t    console.log('after submit')\n\t\t// your code here\n\n\t\tvar deliveryNotesSet = new Set();\n\t\tvar itemDetails = [];\n\t\tconsole.log(frm.doc.is_return)\n\t\tif (frm.doc.is_return == 1) {\n\t\t    console.log('doc is return')\n\t\t    frm.doc.items.forEach(function(item) {\n            if (item.delivery_note) {\n                // Add the Delivery Note name to the Set\n                deliveryNotesSet.add(item.delivery_note);\n                itemDetails.push({\n                        item\n                });\n            }\n        });\n        var deliveryNotes = Array.from(deliveryNotesSet);\n        deliveryNotes.forEach(function(dn){\n            create_return(frm,dn)})\n            update_dnote(dn)\n\t\t    \n\t\t}\n\t    \n        //  console.log(\"Unique Delivery Notes Linked to Items:\", deliveryNotes);  \n        //  console.log(\"Item Details:\", itemDetails);\n        // itemDetails.forEach(function(ite){\n        //     console.log(ite.item.delivery_note)\n        // })\n     \n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Stock Entry",
+  "enabled": 0,
+  "modified": "2023-12-28 15:31:17.045923",
+  "module": "Alhoda",
+  "name": "TT",
+  "script": "frappe.listview_settings['Stock Entry'] = {\r\n    onload : function(listview) {\r\n        // var userRoles = frappe.user_roles;\r\n\r\n        // // Filter roles starting with a number\r\n        // var rolesStartingWithNumber = userRoles.filter(function(role) {\r\n        //     return /^\\d/.test(role);\r\n        // });\r\n       \r\n        // frappe.route_options = {\r\n        //     \"from_warehouse\": ['=', rolesStartingWithNumber[0]],\r\n           \r\n        //   };\r\n        listview.filter_area.add_filter('ID', '=', 'TR-SK-1223-001');\r\n      \r\n        listview.refresh();\r\n       \r\n    }\r\n\r\n};",
+  "view": "List"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Stock Entry",
+  "enabled": 0,
+  "modified": "2023-12-28 16:28:43.475369",
+  "module": null,
+  "name": "te",
+  "script": "frappe.listview_settings['Stock Entry'] = {\r\n\r\n\tonload: function(list_view) {\r\n        var userRoles = frappe.user_roles;\r\n\r\n        // Filter roles starting with a number\r\n        var rolesStartingWithNumber = userRoles.filter(function(role) {\r\n            return /^\\d/.test(role);\r\n        });\r\n \t    list_view.filter_area.filter_list.add_filter(\r\n \t        'Stock Entry', 'from_warehouse', 'Equals', rolesStartingWithNumber[0]\r\n \t      \r\n \t    \r\n \t    )\r\n\t   \r\n\t}\r\n};",
+  "view": "List"
  }
 ]

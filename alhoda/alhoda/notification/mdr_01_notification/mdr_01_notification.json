@@ -1,0 +1,41 @@
+{
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "",
+ "creation": "2024-01-01 13:22:14.802625",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Delivery Note",
+ "enabled": 1,
+ "event": "Submit",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Add your message here",
+ "modified": "2024-01-01 14:41:21.050285",
+ "modified_by": "Administrator",
+ "module": "Alhoda",
+ "name": "MDR 01 Notification",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "condition": "\"01 - AH\" in [d.warehouse for d in doc.get(\"items\")]",
+   "receiver_by_role": "01 - AH"
+  },
+  {
+   "condition": "\"02 - AH\" in [d.warehouse for d in doc.get(\"items\")]",
+   "receiver_by_role": "02 - AH"
+  },
+  {
+   "condition": "\"06 - AH\" in [d.warehouse for d in doc.get(\"items\")]",
+   "receiver_by_role": "06 - AH"
+  },
+  {
+   "condition": "\"11 - AH\" in [d.warehouse for d in doc.get(\"items\")]",
+   "receiver_by_role": "11 - AH"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Delivery Note <span style=\"color:green;\">{{ doc.name }}</span> Submitted."
+}

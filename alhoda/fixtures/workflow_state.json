@@ -48,19 +48,19 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2023-12-14 19:48:15.648159",
-  "name": "Approved by KHO SH",
+  "modified": "2023-12-14 15:09:13.544399",
+  "name": "Save",
   "style": "",
-  "workflow_state_name": "Approved by KHO SH"
+  "workflow_state_name": "Save"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2023-12-14 15:09:13.544399",
-  "name": "Save",
+  "modified": "2023-12-14 19:48:15.648159",
+  "name": "Approved by KHO SH",
   "style": "",
-  "workflow_state_name": "Save"
+  "workflow_state_name": "Approved by KHO SH"
  },
  {
   "docstatus": 0,

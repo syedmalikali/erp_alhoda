@@ -16561,7 +16561,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"22Km6E2dAq\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Your Shortcuts</span>\",\"col\":12}},{\"id\":\"wRbSqa7VP7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"G5TxgManmy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"pRDz_njWZf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier\",\"col\":3}},{\"id\":\"1B182Esn18\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item Enquiry\",\"col\":3}},{\"id\":\"JuTaNATWmi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Transactions</b></span>\",\"col\":12}},{\"id\":\"NIWw4NxUDi\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}},{\"id\":\"RSF5yAQVvQ\",\"type\":\"card\",\"data\":{\"card_name\":\"Inventory\",\"col\":4}}]",
+  "content": "[{\"id\":\"22Km6E2dAq\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Your Shortcuts</span>\",\"col\":12}},{\"id\":\"wRbSqa7VP7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"G5TxgManmy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"pRDz_njWZf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier\",\"col\":3}},{\"id\":\"1B182Esn18\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item Enquiry\",\"col\":3}},{\"id\":\"-l74g1XsTQ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JuTaNATWmi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Transactions</b></span>\",\"col\":12}},{\"id\":\"NIWw4NxUDi\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}},{\"id\":\"RSF5yAQVvQ\",\"type\":\"card\",\"data\":{\"card_name\":\"Inventory\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -16569,7 +16569,7 @@
   "hide_custom": 0,
   "icon": "color-monthly-rank",
   "indicator_color": "",
-  "is_hidden": 0,
+  "is_hidden": 1,
   "label": "Sales User",
   "links": [
    {
@@ -16701,7 +16701,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2023-12-19 10:15:06.935262",
+  "modified": "2023-12-31 10:58:19.943329",
   "module": "",
   "name": "Sales User",
   "number_cards": [],
@@ -16709,26 +16709,7 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [
-   {
-    "parent": "Sales User",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Sales User"
-   },
-   {
-    "parent": "Sales User",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Showroom Manager"
-   },
-   {
-    "parent": "Sales User",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "06 - AH"
-   }
-  ],
+  "roles": [],
   "sequence_id": 39.0,
   "shortcuts": [
    {
@@ -16808,7 +16789,7 @@
   "hide_custom": 0,
   "icon": "color-monthly-rank",
   "indicator_color": "",
-  "is_hidden": 0,
+  "is_hidden": 1,
   "label": "Showroom Manager",
   "links": [
    {
@@ -17052,7 +17033,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2023-12-19 10:14:58.703968",
+  "modified": "2023-12-31 10:59:13.403762",
   "module": "",
   "name": "Showroom Manager",
   "number_cards": [],
@@ -17060,14 +17041,7 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [
-   {
-    "parent": "Showroom Manager",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Showroom Manager"
-   }
-  ],
+  "roles": [],
   "sequence_id": 40.0,
   "shortcuts": [
    {
@@ -17139,7 +17113,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"eSGC_JWg_y\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Sales Executive</span>\",\"col\":12}},{\"id\":\"UDBfgb0WRB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"2BtxI1-OE6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Transactions</b></span>\",\"col\":12}},{\"id\":\"_560aX-4k_\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}}]",
+  "content": "[{\"id\":\"eSGC_JWg_y\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Sales Executive</span>\",\"col\":12}},{\"id\":\"UDBfgb0WRB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"KOHc-EPr5X\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"2BtxI1-OE6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Transactions</b></span>\",\"col\":12}},{\"id\":\"_560aX-4k_\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -17147,7 +17121,7 @@
   "hide_custom": 0,
   "icon": "color-monthly-rank",
   "indicator_color": "",
-  "is_hidden": 0,
+  "is_hidden": 1,
   "label": "Sales Executive",
   "links": [
    {
@@ -17199,7 +17173,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2023-12-19 10:14:42.861062",
+  "modified": "2023-12-31 10:59:05.135193",
   "module": "",
   "name": "Sales Executive",
   "number_cards": [],
@@ -17207,14 +17181,7 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [
-   {
-    "parent": "Sales Executive",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Sales Executives"
-   }
-  ],
+  "roles": [],
   "sequence_id": 41.0,
   "shortcuts": [
    {
@@ -17246,10 +17213,10 @@
   "hide_custom": 0,
   "icon": "color-monthly-rank",
   "indicator_color": "green",
-  "is_hidden": 0,
+  "is_hidden": 1,
   "label": "Stock User",
   "links": [],
-  "modified": "2023-12-18 09:33:08.429987",
+  "modified": "2023-12-31 10:58:57.951117",
   "module": "",
   "name": "Stock User",
   "number_cards": [],
@@ -17257,14 +17224,7 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [
-   {
-    "parent": "Stock User",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Stock User"
-   }
-  ],
+  "roles": [],
   "sequence_id": 42.0,
   "shortcuts": [
    {
@@ -17345,7 +17305,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"UROBmPhtiN\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Store Keeper</span>\",\"col\":12}}]",
+  "content": "[{\"id\":\"UROBmPhtiN\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Store Keeper</span>\",\"col\":12}},{\"id\":\"vd5wDxjXIt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item Enquiry\",\"col\":3}},{\"id\":\"vvJt4cdQEm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"MDR Entry\",\"col\":3}},{\"id\":\"pTZb55tG8M\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"6ZlWiEUpm4\",\"type\":\"card\",\"data\":{\"card_name\":\"Transaction\",\"col\":4}},{\"id\":\"Od1ioZ44aj\",\"type\":\"card\",\"data\":{\"card_name\":\"Report\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -17353,10 +17313,107 @@
   "hide_custom": 0,
   "icon": "color-monthly-rank",
   "indicator_color": "green",
-  "is_hidden": 0,
+  "is_hidden": 1,
   "label": "Store Keeper",
-  "links": [],
-  "modified": "2023-12-21 13:14:31.647721",
+  "links": [
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Transaction",
+    "link_count": 3,
+    "link_to": null,
+    "link_type": null,
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Store Keeper",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Purchase Receipt",
+    "link_count": 0,
+    "link_to": "Purchase Receipt",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Store Keeper",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Purchase Invoice",
+    "link_count": 0,
+    "link_to": "Purchase Invoice",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Store Keeper",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "MDR Entry",
+    "link_count": 0,
+    "link_to": "Stock Entry",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Store Keeper",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Report",
+    "link_count": 1,
+    "link_to": null,
+    "link_type": null,
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Store Keeper",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Stock Ledger",
+    "link_count": 0,
+    "link_to": "Stock Ledger",
+    "link_type": "Report",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Store Keeper",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   }
+  ],
+  "modified": "2023-12-31 10:58:50.263282",
   "module": null,
   "name": "Store Keeper",
   "number_cards": [],
@@ -17364,16 +17421,42 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [
+  "roles": [],
+  "sequence_id": 44.0,
+  "shortcuts": [
    {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Item Enquiry",
+    "link_to": "Item Enquiry",
     "parent": "Store Keeper",
-    "parentfield": "roles",
+    "parentfield": "shortcuts",
     "parenttype": "Workspace",
-    "role": "Store Keeper"
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "Report",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "MDR Entry",
+    "link_to": "Stock Entry",
+    "parent": "Store Keeper",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
    }
   ],
-  "sequence_id": 44.0,
-  "shortcuts": [],
   "title": "Store Keeper"
  },
  {
@@ -17386,10 +17469,10 @@
   "hide_custom": 0,
   "icon": "color-monthly-rank",
   "indicator_color": "green",
-  "is_hidden": 0,
+  "is_hidden": 1,
   "label": "Sales Coordinator",
   "links": [],
-  "modified": "2023-12-21 13:14:17.769706",
+  "modified": "2023-12-31 10:58:44.639600",
   "module": null,
   "name": "Sales Coordinator",
   "number_cards": [],
@@ -17397,14 +17480,7 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [
-   {
-    "parent": "Sales Coordinator",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Sales Coordinator"
-   }
-  ],
+  "roles": [],
   "sequence_id": 45.0,
   "shortcuts": [],
   "title": "Sales Coordinator"
@@ -17419,10 +17495,10 @@
   "hide_custom": 0,
   "icon": "color-monthly-rank",
   "indicator_color": "green",
-  "is_hidden": 0,
+  "is_hidden": 1,
   "label": "Sales Manager",
   "links": [],
-  "modified": "2023-12-24 08:29:56.373331",
+  "modified": "2023-12-31 10:58:38.059747",
   "module": null,
   "name": "Sales Manager",
   "number_cards": [],
@@ -17430,14 +17506,7 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [
-   {
-    "parent": "Sales Manager",
-    "parentfield": "roles",
-    "parenttype": "Workspace",
-    "role": "Sales Manager"
-   }
-  ],
+  "roles": [],
   "sequence_id": 46.0,
   "shortcuts": [
    {
@@ -17458,6 +17527,477 @@
    }
   ],
   "title": "Sales Manager"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"6oqO7JtAw8\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Shortcuts</span>\",\"col\":12}},{\"id\":\"j_eNdx1iNe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"0f1bI3qSlc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"4gCVhnJwdn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier\",\"col\":3}},{\"id\":\"Q6L6eOulRM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Order\",\"col\":3}},{\"id\":\"D1Fp2NLgIW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":3}},{\"id\":\"e0oJQkGDKg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"MDR Entry\",\"col\":3}},{\"id\":\"x04dJf7OZn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item Enquiry\",\"col\":3}},{\"id\":\"4YnI3LFv8T\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item Enquiry - Sales\",\"col\":3}},{\"id\":\"8KNirTmJPK\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3pBgNwc_SR\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Transactions</b></span>\",\"col\":12}},{\"id\":\"EVmPXTO-kV\",\"type\":\"card\",\"data\":{\"card_name\":\"Accounts\",\"col\":4}},{\"id\":\"6zZS9A0c53\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales \",\"col\":4}},{\"id\":\"YL1Hgyq7Ze\",\"type\":\"card\",\"data\":{\"card_name\":\"Inventory\",\"col\":4}},{\"id\":\"Xa2jy3_CUD\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"CDePa9rH7L\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales Reports\",\"col\":4}},{\"id\":\"AOHhS8u1gC\",\"type\":\"card\",\"data\":{\"card_name\":\"Inventory Reports\",\"col\":4}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "color-monthly-rank",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Alhoda",
+  "links": [
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Sales ",
+    "link_count": 4,
+    "link_to": null,
+    "link_type": null,
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Quotation",
+    "link_count": 0,
+    "link_to": "Quotation",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Sales Order",
+    "link_count": 0,
+    "link_to": "Sales Order",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Delivery Note",
+    "link_count": 0,
+    "link_to": "Delivery Note",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Sales Invoice",
+    "link_count": 0,
+    "link_to": "Sales Invoice",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Inventory",
+    "link_count": 3,
+    "link_to": null,
+    "link_type": null,
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Purchase Order",
+    "link_count": 0,
+    "link_to": "Purchase Order",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Purchase Receipt",
+    "link_count": 0,
+    "link_to": "Purchase Receipt",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Purchase Invoice",
+    "link_count": 0,
+    "link_to": "Purchase Invoice",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Inventory Reports",
+    "link_count": 1,
+    "link_to": null,
+    "link_type": null,
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Stock Ledger",
+    "link_count": 0,
+    "link_to": "Stock Ledger",
+    "link_type": "Report",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Accounts",
+    "link_count": 1,
+    "link_to": null,
+    "link_type": null,
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Payment Entry",
+    "link_count": 0,
+    "link_to": "Payment Entry",
+    "link_type": "DocType",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 0,
+    "label": "Sales Reports",
+    "link_count": 3,
+    "link_to": null,
+    "link_type": null,
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Card Break"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 1,
+    "label": "Customer Sales Price",
+    "link_count": 0,
+    "link_to": "Customer Wise Sales Price",
+    "link_type": "Report",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 1,
+    "label": "Cost Of Sales",
+    "link_count": 0,
+    "link_to": "Gross Profit",
+    "link_type": "Report",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   },
+   {
+    "dependencies": null,
+    "hidden": 0,
+    "icon": null,
+    "is_query_report": 1,
+    "label": "Sales Register",
+    "link_count": 0,
+    "link_to": "Sales Register",
+    "link_type": "Report",
+    "onboard": 0,
+    "only_for": null,
+    "parent": "Alhoda",
+    "parentfield": "links",
+    "parenttype": "Workspace",
+    "type": "Link"
+   }
+  ],
+  "modified": "2023-12-31 13:08:33.008607",
+  "module": null,
+  "name": "Alhoda",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "parent": "Alhoda",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Alhoda",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Showroom Manager"
+   },
+   {
+    "parent": "Alhoda",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Store Keeper"
+   },
+   {
+    "parent": "Alhoda",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Sales Executives"
+   },
+   {
+    "parent": "Alhoda",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Alhoda",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Managing Director"
+   },
+   {
+    "parent": "Alhoda",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Sales Manager"
+   }
+  ],
+  "sequence_id": 47.0,
+  "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Item",
+    "link_to": "Item",
+    "parent": "Alhoda",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Item Enquiry - Sales",
+    "link_to": "Item Enquiry",
+    "parent": "Alhoda",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "Report",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Customer",
+    "link_to": "Customer",
+    "parent": "Alhoda",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Supplier",
+    "link_to": "Supplier",
+    "parent": "Alhoda",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Delivery Order",
+    "link_to": "Delivery Note",
+    "parent": "Alhoda",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Sales Invoice",
+    "link_to": "Sales Invoice",
+    "parent": "Alhoda",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "MDR Entry",
+    "link_to": "Stock Entry",
+    "parent": "Alhoda",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Item Enquiry",
+    "link_to": "Item Enquiry For Stock User",
+    "parent": "Alhoda",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "Report",
+    "url": null
+   }
+  ],
+  "title": "Alhoda"
  },
  {
   "charts": [],
