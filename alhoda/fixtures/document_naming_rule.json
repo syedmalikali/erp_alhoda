@@ -10,12 +10,12 @@
     "value": "RYD - AH"
    }
   ],
-  "counter": 8,
+  "counter": 9,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Quotation",
-  "modified": "2023-12-26 08:48:20.381629",
+  "modified": "2024-01-02 09:32:10.729184",
   "name": "b3ae3ef95a",
   "prefix": "RQ-.YY.-",
   "prefix_digits": 4,
@@ -62,12 +62,12 @@
     "value": "0"
    }
   ],
-  "counter": 9,
+  "counter": 12,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Delivery Note",
-  "modified": "2024-01-01 13:22:44.535071",
+  "modified": "2024-01-02 09:27:23.171269",
   "name": "2a59bc42cc",
   "prefix": "KDO-.YY.-",
   "prefix_digits": 5,
@@ -92,12 +92,12 @@
     "value": "1"
    }
   ],
-  "counter": 6,
+  "counter": 9,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Delivery Note",
-  "modified": "2023-12-28 08:54:12.662111",
+  "modified": "2024-01-02 09:19:55.565596",
   "name": "51d60d753c",
   "prefix": "KGR-.YY.-",
   "prefix_digits": 5,
@@ -174,12 +174,12 @@
     "value": "KHO - AH"
    }
   ],
-  "counter": 0,
+  "counter": 1,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Sales Order",
-  "modified": "2023-12-21 09:50:58.929557",
+  "modified": "2024-01-02 09:26:46.081864",
   "name": "5365cfc810",
   "prefix": "KSO-.YY.-",
   "prefix_digits": 4,
@@ -316,12 +316,12 @@
     "value": "0"
    }
   ],
-  "counter": 14,
+  "counter": 16,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Sales Invoice",
-  "modified": "2024-01-01 09:29:23.600411",
+  "modified": "2024-01-02 10:04:34.230249",
   "name": "d53b006d4e",
   "prefix": "KSI-.YY.-",
   "prefix_digits": 5,
@@ -426,12 +426,12 @@
     "value": "KHO - AH"
    }
   ],
-  "counter": 3,
+  "counter": 6,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Purchase Invoice",
-  "modified": "2023-12-27 12:02:06.463188",
+  "modified": "2024-01-02 08:20:54.343400",
   "name": "4666863fd9",
   "prefix": "KPI-.YY.-",
   "prefix_digits": 4,
@@ -546,12 +546,12 @@
     "value": "06 - AH"
    }
   ],
-  "counter": 5,
+  "counter": 10,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Stock Entry",
-  "modified": "2023-12-28 12:24:37.267092",
+  "modified": "2024-01-02 10:34:04.183739",
   "name": "887121df81",
   "prefix": "TR-AR-.MM..YY.-",
   "prefix_digits": 3,

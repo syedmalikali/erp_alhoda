@@ -3,6 +3,15 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
+  "modified": "2024-01-01 16:49:50.839078",
+  "name": "Submitted",
+  "style": "",
+  "workflow_state_name": "Submitted"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
   "modified": "2023-12-14 23:26:56.915570",
   "name": "Rejected By Azizya WH",
   "style": "Danger",
@@ -124,5 +133,14 @@
   "name": "Draft",
   "style": "",
   "workflow_state_name": "Draft"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-01-01 16:45:34.381717",
+  "name": "Submit",
+  "style": "",
+  "workflow_state_name": "Submit"
  }
 ]

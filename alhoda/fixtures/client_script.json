@@ -136,10 +136,10 @@
   "doctype": "Client Script",
   "dt": "Sales Invoice",
   "enabled": 1,
-  "modified": "2024-01-01 09:32:23.533295",
-  "module": null,
+  "modified": "2024-01-02 10:10:24.011129",
+  "module": "Alhoda",
   "name": "Auto Payment Entry for Cash Invoice",
-  "script": "// Define the function outside of the frappe.ui.form.on block\r\nfunction m_p_e(frm) {\r\n    return frappe.call({\r\n        method: \"erpnext.accounts.doctype.payment_entry.payment_entry.get_payment_entry\",\r\n        args: {\r\n            dt: frm.doc.doctype,\r\n            dn: frm.doc.name,\r\n            \r\n        },\r\n        callback: function (r) {\r\n            var doc = frappe.model.sync(r.message);\r\n            frappe.set_route(\"Form\", doc[0].doctype, doc[0].name);\r\n        },\r\n    });\r\n}\r\n\r\nfrappe.ui.form.on('Sales Invoice', {\r\n    refresh(frm) {\r\n        // your code here\r\n    },\r\n    after_submit(frm) {\r\n        // Call the m_p_e function here\r\n        if (frm.doc.custom_invoice_type =='Cash'){\r\n        m_p_e(frm);}\r\n    }\r\n});\r\n",
+  "script": "// Define the function outside of the frappe.ui.form.on block\r\nfunction m_p_e(frm) {\r\n    return frappe.call({\r\n        method: \"erpnext.accounts.doctype.payment_entry.payment_entry.get_payment_entry\",\r\n        args: {\r\n            dt: frm.doc.doctype,\r\n            dn: frm.doc.name,\r\n            \r\n        },\r\n        callback: function (r) {\r\n           \r\n            var doc = frappe.model.sync(r.message);\r\n            frappe.set_route(\"Form\", doc[0].doctype, doc[0].name);\r\n        },\r\n    });\r\n}\r\n\r\nfrappe.ui.form.on('Sales Invoice', {\r\n    refresh(frm) {\r\n        // your code here\r\n    },\r\n    on_submit(frm) {\r\n        // Call the m_p_e function here\r\n        if (frm.doc.custom_invoice_type =='Cash'){\r\n        m_p_e(frm);}\r\n    }\r\n});\r\n",
   "view": "Form"
  }
 ]
