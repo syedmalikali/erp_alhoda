@@ -32,12 +32,12 @@
     "value": "KHO - AH"
    }
   ],
-  "counter": 6,
+  "counter": 7,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Quotation",
-  "modified": "2023-12-26 08:49:38.851944",
+  "modified": "2024-01-02 14:25:57.681089",
   "name": "d9216dd2a0",
   "prefix": "KQ-.YY.-",
   "prefix_digits": 4,
@@ -62,12 +62,12 @@
     "value": "0"
    }
   ],
-  "counter": 12,
+  "counter": 16,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Delivery Note",
-  "modified": "2024-01-02 09:27:23.171269",
+  "modified": "2024-01-03 14:28:00.964413",
   "name": "2a59bc42cc",
   "prefix": "KDO-.YY.-",
   "prefix_digits": 5,
@@ -92,12 +92,12 @@
     "value": "1"
    }
   ],
-  "counter": 9,
+  "counter": 13,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Delivery Note",
-  "modified": "2024-01-02 09:19:55.565596",
+  "modified": "2024-01-03 14:34:46.625173",
   "name": "51d60d753c",
   "prefix": "KGR-.YY.-",
   "prefix_digits": 5,
@@ -256,12 +256,12 @@
     "value": "1"
    }
   ],
-  "counter": 2,
+  "counter": 5,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Sales Invoice",
-  "modified": "2023-12-28 08:54:05.622557",
+  "modified": "2024-01-03 14:49:32.090803",
   "name": "cec6506360",
   "prefix": "KCN-.YY.-",
   "prefix_digits": 5,
@@ -316,12 +316,12 @@
     "value": "0"
    }
   ],
-  "counter": 16,
+  "counter": 18,
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Document Naming Rule",
   "document_type": "Sales Invoice",
-  "modified": "2024-01-02 10:04:34.230249",
+  "modified": "2024-01-03 14:30:30.570859",
   "name": "d53b006d4e",
   "prefix": "KSI-.YY.-",
   "prefix_digits": 5,
