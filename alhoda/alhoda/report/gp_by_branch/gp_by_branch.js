@@ -1,7 +1,7 @@
-// Copyright (c) 2023, Erpgulf and contributors
+// Copyright (c) 2024, Erpgulf and contributors
 // For license information, please see license.txt
 
-frappe.query_reports["Sales By Branch Summary"] = {
+frappe.query_reports["GP by Branch"] = {
 	"filters": [
 		{
 			"fieldname":"year",

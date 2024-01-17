@@ -1,0 +1,35 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-01-13 12:32:52.426541",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "javascript": "frappe.query_reports[\"Customer Wise Sales Price\"] = {\r\n\t\"filters\": [\r\n\t\t{\r\n\t\t\t\"fieldname\":\"customer\",\r\n\t\t\t\"label\": __(\"Customer\"),\r\n\t\t\t\"fieldtype\": \"Link\",\r\n\t\t\t\"options\": \"Customer\",\r\n                        \"reqd\":1,\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"fieldname\":\"item_code\",\r\n\t\t\t\"label\":\"Item Code\",\r\n\t\t\t\"fieldtype\":\"Data\",\r\n\t\t\t\"Default\":\"AB\",\r\n\t\t\t\"width\":\"100\",\r\n\t\t\t\"reqd\":0,\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"fieldname\":\"from_date\",\r\n\t\t\t\"label\": __(\"From Date\"),\r\n\t\t\t\"fieldtype\": \"Date\",\r\n\t\t\t\"default\": frappe.datetime.add_months(frappe.datetime.get_today(), -1),\r\n\t\t\t\"reqd\": 1,\r\n\t\t\t\"width\": \"60px\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"fieldname\":\"to_date\",\r\n\t\t\t\"label\": __(\"To Date\"),\r\n\t\t\t\"fieldtype\": \"Date\",\r\n\t\t\t\"default\": frappe.datetime.get_today(),\r\n\t\t\t\"reqd\": 1,\r\n\t\t\t\"width\": \"60px\"\r\n\t\t},\r\n\r\n\r\n\t]\r\n};\r\n",
+ "letter_head": "ALHODA INVOICE",
+ "letterhead": null,
+ "modified": "2024-01-13 12:45:29.299600",
+ "modified_by": "Administrator",
+ "module": "Alhoda",
+ "name": "Alhoda Price History S",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Alhoda Price History",
+ "report_name": "Alhoda Price History S",
+ "report_script": "\r\n\r\ndef execute(filters=None):\r\n    columns = get_columns()\r\n    data = get_data_and_chart(filters)\r\n    return columns, data\r\ndef get_columns():\r\n    return [ \r\n    {\r\n        'fieldname': 'item_code',\r\n        'label': ('Item Code'),\r\n        'fieldtype': 'Data',\r\n        'options': 'Item',\r\n        'width': 200\r\n    },\r\n\r\n\r\n    {\r\n        'fieldname': 'customer_name',\r\n        'label': ('Customer Name'),\r\n        'fieldtype': 'Data',\r\n        'align': 'left',\r\n        'width': 200\r\n    },\r\n\r\n   \r\n\r\n    {\r\n        'fieldname': 'qty',\r\n        'label': ('Quantity'),\r\n        'fieldtype': 'Data',\r\n        'width': 100,\r\n        'align': 'center'\r\n    },\r\n        {\r\n        'fieldname': 'unit_price',\r\n        'label': ('Selling Price'),\r\n        'fieldtype': 'Currency',\r\n        'width': 175,\r\n        'align': 'right'\r\n    },\r\n        {\r\n        'fieldname': 'customer_po_number',\r\n        'label': ('PO Number'),\r\n        'fieldtype': 'Data',\r\n        'width': 200,\r\n        'align': 'left'\r\n\r\n    },        \r\n\r\n]\r\ndef get_data_and_chart(filters):\r\n    conditions = \"AND 1=1 \"\r\n    if(filters.get('customer')):\r\n        conditions += f\"and  customer_name = '{filters.get('customer_name')}'\"\r\n        \r\n    if(filters.get('item_code')):\r\n        conditions += f\"and  sit.item_code like '%{filters.get('item_code')}%'\"\r\n  \r\n        \r\n    \r\n    \r\n    mysql = f\"\"\"SELECT\r\n    branch,\r\n    customer_name,\r\n    item_code,\r\n    unit_price,\r\n    qty,\r\n    unit_cost,\r\n    customer_po_number,\r\n    invoice_number,\r\n    invoice_date,\r\n    invoice_type\r\nFROM\r\n    `tabAlhoda Price History`\r\nWHERE \r\n    1=1 {conditions}\r\n\"\"\"\r\n\r\n    \r\n    data = frappe.db.sql(mysql, as_dict=True)\r\n    return data\r\n",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Showroom Manager"
+  },
+  {
+   "role": "Sales User"
+  }
+ ]
+}

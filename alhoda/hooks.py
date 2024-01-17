@@ -113,7 +113,6 @@ fixtures = [
     "Custom Field","Client Script",
     {"dt": "Role"},
     {"dt": "Custom DocPerm"},
-    {"dt": "Document Naming Rule"},
     {"dt": "Workflow State"},
     {"dt": "Workflow"},
     {"dt": "Workspace"},
@@ -227,3 +226,8 @@ fixtures = [
 # auth_hooks = [
 #	"alhoda.auth.validate"
 # ]
+
+
+doctype_js = {
+    "Delivery Note": "public/js/need.js",  # Add the path to your custom JavaScript file
+}
