@@ -1,0 +1,317 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-18 16:16:13.278067",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "section_break_rbo1",
+  "branch",
+  "column_break_lvmj",
+  "column_break_wnvn",
+  "column_break_eevm",
+  "column_break_pbek",
+  "section_break_asal",
+  "total_invoice_amount",
+  "total_credit_amount",
+  "total_expenses",
+  "total_sales_amount",
+  "column_break_czpv",
+  "system_total_invoice_amount",
+  "system_total_credit_note_amount",
+  "system_total_expenses",
+  "system_total_sales_amount",
+  "deposit_details_section",
+  "total_cash_deposit",
+  "column_break_kynr",
+  "total_deposit__transfer",
+  "column_break_cbrn",
+  "total_deposit_amount",
+  "column_break_kysv",
+  "total_span_amount",
+  "column_break_icmj",
+  "grand_total",
+  "section_break_gcju",
+  "invoice_details",
+  "invoice_details_span",
+  "column_break_zmvw",
+  "credit_note_details",
+  "expense_on_sales",
+  "section_break_fiqz",
+  "test"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cash Submit",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_rbo1",
+   "fieldtype": "Section Break",
+   "label": "Sales Details"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Branch",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_lvmj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_invoice_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Invoice Amount",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_wnvn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_credit_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Credit Note Amount",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_eevm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_expenses",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Expenses",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_pbek",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_sales_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Sales Amount",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "deposit_details_section",
+   "fieldtype": "Section Break",
+   "label": "Deposit Details"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_cash_deposit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Cash ",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_kynr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_deposit__transfer",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Deposit / Transfer",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_cbrn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_deposit_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Deposit Amount",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kysv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_span_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Span Amount",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_icmj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Grand Total",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_gcju",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "invoice_details",
+   "fieldtype": "Table",
+   "label": "Invoice Details (Cash & Deposit)",
+   "options": "Cash Submit Invoice"
+  },
+  {
+   "fieldname": "section_break_asal",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_czpv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "system_total_invoice_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "System Total Invoice Amount ",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0.00",
+   "fieldname": "system_total_credit_note_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "System Total Credit Note Amount ",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0.00",
+   "fieldname": "system_total_expenses",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "System Total Expenses",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "system_total_sales_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "System Total Sales Amount",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_zmvw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_fiqz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "test",
+   "fieldtype": "Data",
+   "label": "Test"
+  },
+  {
+   "fieldname": "credit_note_details",
+   "fieldtype": "Table",
+   "label": "Credit Note Details",
+   "options": "Cash Submit Crn"
+  },
+  {
+   "fieldname": "invoice_details_span",
+   "fieldtype": "Table",
+   "label": "Invoice Details (Span Card)",
+   "options": "Cash Submit Invoice"
+  },
+  {
+   "fieldname": "expense_on_sales",
+   "fieldtype": "Table",
+   "label": "Expense On Sales",
+   "options": "Cash Submit Sales Expense"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-22 13:42:01.637082",
+ "modified_by": "Administrator",
+ "module": "Alhoda",
+ "name": "Cash Submit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Showroom Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-18 16:04:38.988824",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_invoice_details_section",
+  "branch",
+  "sales_invoice_number",
+  "grand_total"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_invoice_details_section",
+   "fieldtype": "Section Break",
+   "label": "Sales Invoice Details"
+  },
+  {
+   "fetch_from": "sales_invoice_number.cost_center",
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "label": "Branch",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_invoice_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sales Invoice Number",
+   "options": "Sales Invoice",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "sales_invoice_number.base_grand_total",
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Grand Total",
+   "precision": "2",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-22 13:14:35.529499",
+ "modified_by": "Administrator",
+ "module": "Alhoda",
+ "name": "Cash Submit Invoice",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

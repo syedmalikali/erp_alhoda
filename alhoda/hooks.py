@@ -111,11 +111,11 @@ app_license = "mit"
 # }
 fixtures = [
     "Custom Field","Client Script",
-    {"dt": "Role"},
-    {"dt": "Custom DocPerm"},
-    {"dt": "Workflow State"},
-    {"dt": "Workflow"},
-    {"dt": "Workspace"},
+#    {"dt": "Role"},
+#    {"dt": "Custom DocPerm"},
+#    {"dt": "Workflow State"},
+#    {"dt": "Workflow"},
+#    {"dt": "Workspace"},
 ]
 # DocType Class
 # ---------------

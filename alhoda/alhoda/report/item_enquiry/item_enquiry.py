@@ -38,6 +38,7 @@ def get_columns():
         'label': ('Avg.Cost'),
         'fieldtype': 'Currency',
         'width': 100,
+        'disable_total':True,
         
         'align': 'right'
     },    
