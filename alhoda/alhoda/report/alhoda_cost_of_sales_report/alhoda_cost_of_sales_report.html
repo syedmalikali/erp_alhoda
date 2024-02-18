@@ -1,0 +1,167 @@
+
+<style>
+.table_component {
+    overflow: auto;
+    width: 100%;
+}
+
+.table_component table {
+    border: 1px solid #dededf;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: left;
+}
+
+.table_component caption {
+    caption-side: top;
+    text-align: left;
+}
+
+.table_component th {
+    border: 1px solid #dededf;
+    background-color: #eceff1;
+    color: #000000;
+    padding: 5px;
+}
+
+.table_component td {
+    border: 1px solid #dededf;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+}
+
+.print-format td, .print-format th {
+    padding: 0px !important;
+}
+</style>
+<h2 class="text-center">{%= __("Cost Of Sales Report") %}</h2>
+<h4 class="text-center">
+    {%= filters.cost_center %}
+</h4>
+<h5 class="text-center">
+    {%= frappe.datetime.str_to_user(filters.from_date) %}
+    {%= __("to") %}
+    {%= frappe.datetime.str_to_user(filters.to_date) %}
+</h5>
+<div class="table_component" role="region" tabindex="0">
+<table >
+    <thead>
+
+        <tr>
+            <th style="width: 12%">{%= __("Date") %}</th>
+            <th style="width: 15%">{%= __("Item Code") %}</th>
+            <th style="width: 25%">{%= __("Description") %}</th>
+            <th style="width: 10%">{%= __("Qty") %}</th>
+            <!-- <th style="width: 15%">{%= __("Unit Price") %}</th> -->
+            <th style="width: 10%">{%= __("Total Amount") %}</th>
+            <!-- <th style="width: 18%">{%= __("Unit Cost") %}</th> -->
+            <th style="width: 10%">{%= __("Total Cost") %}</th>
+            <th style="width: 10%">{%= __("Profit") %}</th>
+            <th style="width: 5%">{%= __("%") %}</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% var totalQty = 0, totalSellingAmount = 0, totalBuyingAmount = 0, totalGrossProfit = 0,
+        totalGrossProfitPercent = 0;  %}
+
+        {% var gtotalQty = 0, gtotalSellingAmount = 0, gtotalBuyingAmount = 0, gtotalGrossProfit = 0,
+            gtotalGrossProfitPercent = 0;  %}
+    
+        {% for(var i=0, l=data.length; i<l; i++) { %} 
+        {% if (data[i].indent==0) { %} {% if (totalQty> 0) { %}
+            <tr>
+                <td colspan="3" style="text-align: right">Total</td>
+                <td style="text-align: center">{%= totalQty %}</td>
+                <td style="text-align: right">{%= format_currency(totalSellingAmount) %}</td>
+                <td style="text-align: right">{%= format_currency(totalBuyingAmount) %}</td>
+                <td style="text-align: right">{%= format_currency(totalGrossProfit) %}</td>
+                <td style="text-align: center">{%= format_currency(totalGrossProfitPercent) %}</td>
+            </tr>
+            {% var totalQty = 0, totalSellingAmount = 0, totalBuyingAmount = 0, totalGrossProfit = 0,
+            totalGrossProfitPercent = 0; %}
+            {% } %}
+            <tr>
+                <th colspan="2">{%= data[i].sales_invoice %}</th>
+                <th>{%= frappe.datetime.str_to_user(data[i].posting_date) %}</th>
+                <th>{%= data[i].customer %}</th>
+            </tr>
+
+
+            {% } else { %}
+            <tr>
+                
+                <td style="text-align: left; padding: 0%!important;">{%= data[i].item_code %}</td>
+                <td colspan="2" style="text-align: left">{%= data[i].item_name %}</td>
+                <td style="text-align: center">{%= data[i].qty %}</td>
+                <!-- <td>{%= data[i].avg_selling_rate %}</td> -->
+                <!-- <td>{%= data[i].buying_rate %}</td> -->
+                <td style="text-align: right">{%= format_currency(data[i].selling_amount) %}</td>
+                <td style="text-align: right">{%= format_currency(data[i].buying_amount) %}</td>
+                <td style="text-align: right">{%= format_currency(data[i].gross_profit) %}</td>
+                <td style="text-align: center">{%= format_currency(data[i]["gross_profit_%"])%}</td>
+
+            </tr>
+            {% totalQty += data[i].qty; %}
+            {% totalSellingAmount += data[i].selling_amount; %}
+            {% totalBuyingAmount += data[i].buying_amount; %}
+            {% totalGrossProfit += data[i].gross_profit; %}
+            {% totalGrossProfitPercent = (totalGrossProfit/totalSellingAmount)*100 %}
+
+            {% gtotalSellingAmount += data[i].selling_amount; %}
+            {% gtotalBuyingAmount += data[i].buying_amount; %}
+            {% gtotalGrossProfit += data[i].gross_profit; %}
+            {% gtotalGrossProfitPercent = (gtotalGrossProfit/gtotalSellingAmount)*100 %}                   
+
+            {% if (i === l-1) { %}
+            <tr>
+                <td colspan="3">Total</td>
+                <td style="text-align: right">{%= totalQty %}</td>
+                <td style="text-align: right">{%= format_currency(totalSellingAmount) %}</td>
+                <td style="text-align: right">{%= format_currency(totalBuyingAmount) %}</td>
+                <td style="text-align: right">{%= format_currency(totalGrossProfit) %}</td>
+                <td style="text-align: center">{%= format_currency(totalGrossProfitPercent) %}</td>
+            </tr>
+            <tr>
+                <td colspan="3">Grand Total</td>
+                <td style="text-align: right"></td>
+                <td style="text-align: right">{%= format_currency(gtotalSellingAmount) %}</td>
+                <td style="text-align: right">{%= format_currency(gtotalBuyingAmount) %}</td>
+                <td style="text-align: right">{%= format_currency(gtotalGrossProfit) %}</td>
+                <td style="text-align: center">{%= format_currency(gtotalGrossProfitPercent) %}</td>
+            </tr>
+        {% } %}
+
+            {% } %}
+    
+
+
+
+
+            {% } %}
+
+    </tbody>
+</table>
+</div>
+<!-- <table class="table table-bordered">
+    <thead>
+        <tr>
+            {% for(var key in data[0]) { %}
+                <th style="width: {{ 100 / Object.keys(data[0]).length }}%">{{ key }}</th>
+            {% } %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for(var i=0, l=data.length; i<l; i++) { %}
+            <tr>
+                {% for(var key in data[i]) { %}
+                    <td>{%= data[i][key] %}</td>
+                {% } %}
+            </tr>
+        {% } %}
+    </tbody>
+</table> -->
