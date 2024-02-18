@@ -1,6 +1,6 @@
 import frappe
-frappe.init(site="hoda-dev.erpgulf.com")
-frappe.connect()
+# frappe.init(site="hoda-dev.erpgulf.com")
+# frappe.connect()
 import sys
 from frappe import _
 
@@ -73,36 +73,3 @@ def validate_item_quantity(item, delivery_note_doc):
     return difference
 
 
-
-
-
-def validate_sales_invoice_before_save(sales_invoice_doc):
-    if not isinstance(sales_invoice_doc, dict):
-        sales_invoice_doc = frappe.get_doc('Sales Invoice', sales_invoice_doc)
-        print(sales_invoice_doc)
-    for item in sales_invoice_doc.items:
-        original_qty = 0
-        
-        # Retrieve the delivery note linked to the item
-        delivery_note_name = item.delivery_note
-        print(delivery_note_name)
-        if delivery_note_name:
-            # Get the delivery note document
-            delivery_note_doc = frappe.get_doc('Delivery Note', delivery_note_name)
-            
-            # Retrieve the quantity from the delivery note
-            qty = delivery_note_doc.get('qty')
-            if qty is not None:
-                original_qty = abs(qty)
-            else:
-                # Handle the case where qty is None or not present
-                original_qty = 0
-            
-            # You can perform further validation or calculations here based on original_qty
-            
-            # For demonstration purposes, let's print the original quantity
-            print(f"Original Quantity for item {item.item_code}: {original_qty}")
-        else:
-            frappe.throw(f"No Delivery Note found for item {item.item_code}.")        
-
-validate_sales_invoice_before_save('KSI-24-00080')

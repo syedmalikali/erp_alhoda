@@ -229,5 +229,8 @@ fixtures = [
 
 
 doctype_js = {
-    "Delivery Note": "public/js/need.js",  # Add the path to your custom JavaScript file
+    "Sales Invoice": "public/js/salesinv.js",  
+    "Delivery Note":"public/js/deliverynote.js",
+    "Sales Invoice": "public/js/filtergetitem.js",
+
 }
