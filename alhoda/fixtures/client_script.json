@@ -2,6 +2,39 @@
  {
   "docstatus": 0,
   "doctype": "Client Script",
+  "dt": "Delivery Note",
+  "enabled": 0,
+  "modified": "2024-02-12 10:48:02.778563",
+  "module": "Alhoda",
+  "name": "Naming Series Delivery Order",
+  "script": "frappe.ui.form.on('Delivery Note', {\n//      customer(frm){\n//         frappe.call({\n//     'method': 'frappe.client.get_value',\n//     'args': {\n//       'doctype': 'Customer',\n//       'fieldname': 'default_price_list',\n//       'filters': cur_frm.doc.customer,\n//   },\n//   'async': false,\n//   'callback': function(res){\n//   cur_frm.doc.selling_price_list=res.message.default_price_list; \n  \n//   }\n//   });\n//     },\n\trefresh(frm) {\n\t\t// your code here\n\t\t\n\t},\n\t\tvalidate(frm){\n\t    set_naming(frm)\n\t   \n\t},\n})\n\nfunction set_naming(frm) {\n    if (frm.doc.cost_center && frm.doc.is_return === 0) {\n        frm.set_value(\"naming_series\", frm.doc.cost_center.charAt(0) + 'DO' + '-.YY.-.#####');\n    } else {\n        frm.set_value(\"naming_series\", frm.doc.cost_center.charAt(0) + 'GRN' + '-.YY.-.####');\n    }\n}",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Purchase Receipt",
+  "enabled": 1,
+  "modified": "2023-12-24 12:24:32.163633",
+  "module": "Alhoda",
+  "name": "Warehouse Restriction in Purchase Receipt",
+  "script": "frappe.ui.form.on('Purchase Receipt', {\n\trefresh(frm) {\n\t chkWarehouse(frm);\n\t},\n\tcost_center(frm){\n\t        frm.set_query(\"set_warehouse\", function() {\n        return {\n            \"filters\": {\n                \"parent_warehouse\": frm.doc.cost_center,\n                \n            }\n        };\n    });\n    \n\t}\n})\n\nfunction chkWarehouse(frm) {\n   \n    frm.set_query('warehouse', 'items', function (doc, cdt, cdn) {\n        var chk = frm.doc.__unsaved ? frm.doc.cost_center : '';\n        var filters = erpnext.queries.warehouse(frm.doc);\n         var d = locals[cdt][cdn];\n        if (chk === undefined) {\n                frappe.msgprint('Please specify: Branch. It is needed to fetch Item Details.')\n    }\n        if (chk) {\n            $.extend(filters, {\n                \"query\": \"erpnext.controllers.queries.warehouse_query\",\n                \"filters\": [\n                    [\"Warehouse\", \"parent_warehouse\", \"=\", chk],\n                    [\"Bin\",\"item_code\",\"=\",d.item_code]\n                    ]\n            });\n        }\n       \n       \n        return filters;\n    });\n\n \n}\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Customer",
+  "enabled": 1,
+  "modified": "2024-01-20 09:03:37.548011",
+  "module": null,
+  "name": "Customer",
+  "script": "frappe.ui.form.on('Customer', {\n\trefresh(frm) {\n\t   // if (frm.doc.customer_group == 'CASH'){\n\t   //     frm.doc.name=''\n\t   //     console.log('refresh')\n\t   // }\t\t// your code here\n\t},\n\tbefore_save(frm){\n\t    if (frm.doc.__islocal ==1 && frm.doc.customer_group == 'CASH'){\n\t       frm.doc.__newname=''\n\t        console.log('before save')\n\t    }\n\t},\n\tvalidate(frm){\n\t   // if (frm.doc.customer_group == 'CASH'){\n\t   //     frm.doc.name=''\n\t   //     console.log('validate')\n\t   // }\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
   "dt": "Quotation",
   "enabled": 1,
   "modified": "2023-12-04 10:31:31.971444",
@@ -202,10 +235,10 @@
   "doctype": "Client Script",
   "dt": "Sales Invoice",
   "enabled": 0,
-  "modified": "2024-02-12 09:13:11.725576",
+  "modified": "2024-02-27 14:21:10.319031",
   "module": "Alhoda",
   "name": "Auto Payment for Sales Invoice Client Script 2",
-  "script": "frappe.ui.form.on('Sales Invoice', {\r\n\trefresh(frm) {\r\n\t\t// your code here\r\n\t},\r\n\t on_submit(frm) {\r\n        // Call the m_p_e function here\r\n        if (frm.doc.custom_invoice_type =='Cash'){\r\n        cash_auto_payment(frm);\r\n        }\r\n    }\r\n\t\r\n})\r\n\r\n\r\nfunction cash_auto_payment(frm) {\r\n              var p_e = frappe.db.insert({\r\n                    \"doctype\": \"Payment Entry\",\r\n                    \"party_type\": \"Customer\",\r\n                    \"party\": frm.doc.customer,\r\n                    \"payment_type\": \"Receive\",\r\n                    \"posting_date\": frm.doc.posting_date,\r\n                    \"reference_date\": frm.doc.posting_date,\r\n                    \"company\": frm.doc.company,\r\n                    \"paid_to\": \"12012002 - Cash Sales - AH\",\r\n                    \"paid_received\": frm.doc.grand_total,\r\n                    \"paid_amount\": frm.doc.grand_total,\r\n                    \"received_amount\": frm.doc.grand_total,\r\n                    \"paid_from_account_type\":\"Receivable\",\r\n                    \"cost_center\":frm.doc.cost_center,\r\n                    \"total_amount\": frm.doc.grand_total,\r\n                    \"docstatus\":1,\r\n                    \"references\": [{\r\n                    \"reference_doctype\": \"Sales Invoice\",\r\n                    \"reference_name\": frm.doc.name,\r\n                    \"due_date\": frm.doc.posting_date,\r\n                    \"allocated_amount\": frm.doc.grand_total\r\n                   \r\n                }]\r\n                \r\n                }).then(doc => {})\r\n\r\n                \r\n;\r\n}    \r\n",
+  "script": "frappe.ui.form.on('Sales Invoice', {\r\n        refresh(frm) {\r\n                // your code here\r\n                if (frm.doc.custom_invoice_type =='Cash' && (frm.doc.status =='Unpaid' || frm.doc.status =='Overdue' )  ){\r\n                frm.add_custom_button(__(\"Make Payment\"), function() {\r\n                    \r\n                    \r\n                    frappe.confirm('Are you sure you want to proceed?',\r\n                        () => {\r\n                            // action to perform if Yes is selected\r\n                             cash_auto_payment(frm);\r\n                             cur_frm.reload_doc();\r\n                        }, () => {\r\n                            // action to perform if No is selected\r\n                            frappe.msgprint(__('Payment Not Added'));\r\n                        })\r\n                                        \r\n                    \r\n                    \r\n                       \r\n                 }).css({\"color\":\"white\", \"background-color\": \"#34A853\"});\r\n                }\r\n        },\r\n         on_submit(frm) {\r\n        // Call the m_p_e function here\r\n        // if (frm.doc.custom_invoice_type =='Cash'){\r\n        // cash_auto_payment(frm);\r\n        // }\r\n    }\r\n        \r\n})\r\n\r\n\r\nfunction cash_auto_payment(frm) {\r\n              var p_e = frappe.db.insert({\r\n                    \"doctype\": \"Payment Entry\",\r\n                    \"party_type\": \"Customer\",\r\n                    \"party\": frm.doc.customer,\r\n                    \"payment_type\": \"Receive\",\r\n                    \"posting_date\": frm.doc.posting_date,\r\n                    \"reference_date\": frm.doc.posting_date,\r\n                    \"company\": frm.doc.company,\r\n                    \"paid_to\": \"12012002 - Cash Sales - AH\",\r\n                    \"paid_received\": frm.doc.grand_total,\r\n                    \"paid_amount\": frm.doc.grand_total,\r\n                    \"received_amount\": frm.doc.grand_total,\r\n                    \"paid_from_account_type\":\"Receivable\",\r\n                    \"cost_center\":frm.doc.cost_center,\r\n                    \"total_amount\": frm.doc.grand_total,\r\n                    \"docstatus\":1,\r\n                    \"references\": [{\r\n                    \"reference_doctype\": \"Sales Invoice\",\r\n                    \"reference_name\": frm.doc.name,\r\n                    \"due_date\": frm.doc.posting_date,\r\n                    \"allocated_amount\": frm.doc.grand_total\r\n                   \r\n                }]\r\n                \r\n                }).then(doc => {\r\n                    alert(doc.name)\r\n                    cur_frm.reload_doc();\r\n                })\r\n\r\n                \r\n;\r\n}    \r\n",
   "view": "Form"
  },
  {
