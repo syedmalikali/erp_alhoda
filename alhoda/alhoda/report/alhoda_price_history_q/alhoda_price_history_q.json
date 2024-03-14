@@ -80,18 +80,19 @@
   {
    "default": "",
    "fieldname": "customer_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Customer Name",
-   "mandatory": 1,
+   "mandatory": 0,
+   "options": "Customer",
    "wildcard_filter": 1
   },
   {
-   "default": "",
+   "default": "A",
    "fieldname": "item_code",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Item Code",
-   "mandatory": 1,
-   "options": "",
+   "mandatory": 0,
+   "options": "Item",
    "wildcard_filter": 1
   }
  ],
@@ -99,7 +100,7 @@
  "is_standard": "Yes",
  "letter_head": "ALHODA INVOICE",
  "letterhead": null,
- "modified": "2024-01-15 09:30:03.575174",
+ "modified": "2024-03-07 13:19:15.423835",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Alhoda Price History Q",

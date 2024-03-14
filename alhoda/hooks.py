@@ -109,14 +109,14 @@ app_license = "mit"
 # has_permission = {
 #	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
-fixtures = [
-    "Custom Field","Client Script",
+#fixtures = [
+#    "Custom Field","Client Script",
 #    {"dt": "Role"},
 #    {"dt": "Custom DocPerm"},
 #    {"dt": "Workflow State"},
 #    {"dt": "Workflow"},
 #    {"dt": "Workspace"},
-]
+#]
 # DocType Class
 # ---------------
 # Override standard doctype classes
