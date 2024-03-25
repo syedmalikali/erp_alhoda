@@ -23,6 +23,7 @@
   "cheque_amount",
   "report_total",
   "difference",
+  "remarks",
   "invoice_details_section",
   "invoice_details"
  ],
@@ -76,7 +77,8 @@
    "fetch_from": "customer.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
-   "label": "Customer Name"
+   "label": "Customer Name",
+   "read_only": 1
   },
   {
    "fieldname": "cheque_amount",
@@ -119,19 +121,28 @@
   {
    "fieldname": "report_total",
    "fieldtype": "Float",
-   "label": "Report Total"
+   "label": "Report Total",
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "difference",
    "fieldtype": "Float",
-   "label": "Difference"
+   "label": "Difference",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-18 10:46:08.339829",
+ "modified": "2024-03-18 11:19:25.722076",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Cws Report",

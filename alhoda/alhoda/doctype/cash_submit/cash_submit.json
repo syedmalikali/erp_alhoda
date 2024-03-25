@@ -37,7 +37,7 @@
   "invoice_details_span",
   "column_break_zmvw",
   "credit_note_details",
-  "expense_on_sales",
+  "sales_expense",
   "section_break_fiqz",
   "test"
  ],
@@ -270,16 +270,16 @@
    "options": "Cash Submit Invoice"
   },
   {
-   "fieldname": "expense_on_sales",
+   "fieldname": "sales_expense",
    "fieldtype": "Table",
-   "label": "Expense On Sales",
-   "options": "Cash Submit Sales Expense"
+   "label": "Sales Expense",
+   "options": "Cws Invoice"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-22 13:42:01.637082",
+ "modified": "2024-03-24 12:22:53.880145",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Cash Submit",
