@@ -9,32 +9,35 @@
   "section_break_rbo1",
   "branch",
   "column_break_lvmj",
+  "submission_date",
   "column_break_wnvn",
   "column_break_eevm",
   "column_break_pbek",
   "section_break_asal",
   "total_invoice_amount",
   "total_credit_amount",
+  "net_cash_sale",
   "total_expenses",
-  "total_sales_amount",
+  "amount_to_be_remitted",
   "column_break_czpv",
   "system_total_invoice_amount",
   "system_total_credit_note_amount",
   "system_total_expenses",
   "system_total_sales_amount",
   "deposit_details_section",
-  "total_cash_deposit",
+  "deposit",
   "column_break_kynr",
-  "total_deposit__transfer",
+  "cash",
   "column_break_cbrn",
-  "total_deposit_amount",
+  "span_amount",
   "column_break_kysv",
-  "total_span_amount",
+  "cheque_and_transfer",
   "column_break_icmj",
   "grand_total",
   "section_break_gcju",
   "invoice_details",
   "invoice_details_span",
+  "invoice_details_cheque_and_transfer",
   "column_break_zmvw",
   "credit_note_details",
   "sales_expense",
@@ -110,68 +113,21 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "0.00",
-   "fieldname": "total_sales_amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Sales Amount",
-   "non_negative": 1,
-   "precision": "2",
-   "read_only": 1
-  },
-  {
    "fieldname": "deposit_details_section",
    "fieldtype": "Section Break",
    "label": "Deposit Details"
-  },
-  {
-   "default": "0.00",
-   "fieldname": "total_cash_deposit",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Cash ",
-   "non_negative": 1,
-   "precision": "2"
   },
   {
    "fieldname": "column_break_kynr",
    "fieldtype": "Column Break"
   },
   {
-   "default": "0.00",
-   "fieldname": "total_deposit__transfer",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Deposit / Transfer",
-   "non_negative": 1,
-   "precision": "2"
-  },
-  {
    "fieldname": "column_break_cbrn",
    "fieldtype": "Column Break"
   },
   {
-   "default": "0.00",
-   "fieldname": "total_deposit_amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Deposit Amount",
-   "non_negative": 1,
-   "precision": "2",
-   "read_only": 1
-  },
-  {
    "fieldname": "column_break_kysv",
    "fieldtype": "Column Break"
-  },
-  {
-   "default": "0.00",
-   "fieldname": "total_span_amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Span Amount",
-   "non_negative": 1,
-   "precision": "2"
   },
   {
    "fieldname": "column_break_icmj",
@@ -274,12 +230,77 @@
    "fieldtype": "Table",
    "label": "Sales Expense",
    "options": "Cws Invoice"
+  },
+  {
+   "fieldname": "submission_date",
+   "fieldtype": "Date",
+   "label": "Submission Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "net_cash_sale",
+   "fieldtype": "Currency",
+   "label": "Net Cash Sale",
+   "read_only": 1
+  },
+  {
+   "default": "0.00",
+   "fieldname": "amount_to_be_remitted",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount to be Remitted",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0.00",
+   "fieldname": "cash",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cash ",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "deposit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Deposit",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "cheque_and_transfer",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cheque and Transfer",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "span_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Span Amount",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "invoice_details_cheque_and_transfer",
+   "fieldtype": "Table",
+   "label": "Invoice Details (Cheque and Transfer)",
+   "options": "Cash Submit Invoice"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-24 12:22:53.880145",
+ "modified": "2024-03-28 11:22:41.517918",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Cash Submit",
@@ -308,6 +329,26 @@
    "role": "Showroom Manager",
    "share": 1,
    "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
    "write": 1
   }
  ],
