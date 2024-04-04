@@ -36,7 +36,6 @@
   "grand_total",
   "section_break_gcju",
   "invoice_details",
-  "invoice_details_span",
   "invoice_details_cheque_and_transfer",
   "column_break_zmvw",
   "credit_note_details",
@@ -220,12 +219,6 @@
    "options": "Cash Submit Crn"
   },
   {
-   "fieldname": "invoice_details_span",
-   "fieldtype": "Table",
-   "label": "Invoice Details (Span Card)",
-   "options": "Cash Submit Invoice"
-  },
-  {
    "fieldname": "sales_expense",
    "fieldtype": "Table",
    "label": "Sales Expense",
@@ -300,7 +293,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-28 11:22:41.517918",
+ "modified": "2024-04-01 12:51:24.209389",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Cash Submit",
