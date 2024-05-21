@@ -1,9 +1,6 @@
 {
  "actions": [],
- "allow_auto_repeat": 1,
  "allow_copy": 1,
- "allow_import": 1,
- "allow_rename": 1,
  "autoname": "format:CWS-{MM}{YY}-{####}",
  "creation": "2024-02-14 08:49:27.396492",
  "doctype": "DocType",
@@ -21,11 +18,13 @@
   "bank_name",
   "column_break_gzas",
   "cheque_amount",
-  "report_total",
-  "difference",
   "remarks",
   "invoice_details_section",
-  "invoice_details"
+  "invoice_details",
+  "section_break_gdwx",
+  "report_total",
+  "column_break_xgfg",
+  "difference"
  ],
  "fields": [
   {
@@ -129,20 +128,27 @@
    "fieldname": "difference",
    "fieldtype": "Float",
    "label": "Difference",
-   "non_negative": 1,
    "read_only": 1
   },
   {
    "fieldname": "remarks",
    "fieldtype": "Data",
    "label": "Remarks"
+  },
+  {
+   "fieldname": "section_break_gdwx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xgfg",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-18 11:19:25.722076",
+ "modified": "2024-05-21 08:38:34.694305",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Cws Report",
@@ -161,10 +167,68 @@
    "share": 1,
    "submit": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Showroom Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Managing Director",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
   }
  ],
  "search_fields": "branch,customer,cheque_amount",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1,
+ "track_views": 1
 }
