@@ -1,4 +1,7 @@
-frappe.query_reports["Alhoda Account Receivable Summary"] = {
+// Copyright (c) 2024, Erpgulf and contributors
+// For license information, please see license.txt
+
+frappe.query_reports["Alhoda AR Report"] = {
 	filters: [
 		{
 			fieldname: "company",
@@ -147,33 +150,61 @@ frappe.query_reports["Alhoda Account Receivable Summary"] = {
 	],
 
 formatter: function (value, row, column, data, default_formatter) {
+    v1=value	
+
     value = default_formatter(value, row, column, data);
-   
-    // Accessing the value in the 14th column (index 13)
-if (row) {
+
+
+
+    if (column.fieldname === "range1" && v1 && v1  !== null && !isNaN(v1) && v1>0) {
+	
+	let formattedRange1 = parseFloat(v1).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        value = `<div style='text-align: right; background-color: #B0F4FF; padding: 2px;'>${formattedRange1}</div>`;
+
+    } else 
+
+
+    if (column.fieldname === "range2" && v1 && v1  !== null && !isNaN(v1) && v1>0) {
+	
+	let formattedRange1 = parseFloat(v1).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        value = `<div style='text-align: right; background-color: #C3EFA9; padding: 2px;'>${formattedRange1}</div>`;
+    } else 
+
+
+   if (column.fieldname === "range3" && v1 && v1  !== null && !isNaN(v1) && v1>0) {
+ 	
+	let formattedRange1 = parseFloat(v1).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        value = `<div style='text-align: right; background-color: #FFEC9A; padding: 2px;'>${formattedRange1}</div>`;
+    } else 
+
+
+  if (column.fieldname === "range4" && v1 && v1  !== null && !isNaN(v1) && v1>0) {
+
+	let formattedRange1 = parseFloat(v1).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        value = `<div style='text-align: right; background-color: #FFC69A; padding: 2px;'>${formattedRange1}</div>`;
+    } else 
+
+
+    if (column.fieldname === "range5" && v1 && v1  !== null && !isNaN(v1) && v1>0) {
+
+	let formattedRange1 = parseFloat(v1).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        value = `<div style='text-align: right; background-color: #F7C6CA; padding: 2px;'>${formattedRange1}</div>`;
+    }
+
+
+if (row){
+
     let above120days = parseFloat(row[8].content || 0);
     let days120 = parseFloat(row[7].content || 0);
     let days90 = parseFloat(row[6].content || 0);
     let days60 = parseFloat(row[5].content || 0);
     let days30 = parseFloat(row[4].content || 0);
-	//first color F7C6CA
-	//second color FFC69A
-	// 3rd color FFEC9A
-	// 4th color C3EFA9
-	// 5th color B0F4FF
-    if (days30>0 && column.colIndex === 4) {
-        value = `<div style="background-color: #B0F4FF; padding: 2px;">${value}</div>`;    
-    } else if (days60>0 && column.colIndex === 5) {
-        value = `<div style="background-color: #C3EFA9; padding: 2px;">${value}</div>`;    
-    } else if (days90>0 && column.colIndex === 6) {
-        value = `<div style="background-color: #FFEC9A; padding: 2px;">${value}</div>`;    
-    } else if (days120>0 && column.colIndex === 7) {
-        value = `<div style="background-color: #FFC69A; padding: 2px;">${value}</div>`;    
-    } else if  (above120days>0 && column.colIndex === 8) {
-        value = `<div style="background-color: #F7C6CA; padding: 2px;">${value}</div>`;    
-    } 
-
-
+	
     if (column.colIndex === 1) {
         if (above120days > 0) {
             value = `<div style="background-color: #F7C6CA; ">${value}</div>`;
@@ -186,21 +217,14 @@ if (row) {
         } else if (days30 > 0) {
             value = `<div style="background-color: #B0F4FF; ">${value}</div>`;
         } 
-    }
-    
-        
-    // if ((column.colIndex === 1 || column.colIndex === 8) && above120days > 0) { 
-    //     // If the value in the 14th column is greater than 0, apply green highlight
-    //     value = `<div style="background-color: #ff9fae; padding: 2px;">${value}</div>`;
-    // } else if ((column.colIndex === 1 || column.colIndex === 7) && (above120days+days120) > 0 && above120days <= 0) { 
-    //     value = `<div style="background-color: #fde995; padding: 2px;">${value}</div>`;
-    // } else if ((column.colIndex === 1 || column.colIndex === 6) && (above120days+days120) > 0 && above120days <= 0) { 
-    //     value = `<div style="background-color: #a6e1c5; padding: 2px;">${value}</div>`;
-    // }
+    }	
 }
+
+
+
+
     return value;
 },
-
 
 
 	onload: function (report) {
@@ -224,3 +248,4 @@ function get_party_type_options() {
 		});
 	return options;
 }
+

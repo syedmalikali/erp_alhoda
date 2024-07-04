@@ -37,6 +37,10 @@
 .print-format td, .print-format th {
     padding: 0px !important;
 }
+.highlight-row {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+}
 </style>
 <h2 class="text-center">{%= __("Cost Of Sales Report") %}</h2>
 <h4 class="text-center">
@@ -74,7 +78,7 @@
     
         {% for(var i=0, l=data.length; i<l; i++) { %} 
         {% if (data[i].indent==0) { %} {% if (totalQty> 0) { %}
-            <tr>
+            <tr >
                 <td colspan="3" style="text-align: right">Total</td>
                 <td style="text-align: center">{%= totalQty %}</td>
                 <td style="text-align: right">{%= format_currency(totalSellingAmount) %}</td>
