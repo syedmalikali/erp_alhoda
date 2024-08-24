@@ -14,4 +14,17 @@ def get_doqty(item_code):
              `tabDelivery Note Item` dnt where qty>0 and docstatus=1;
         """ %
         conditions, as_dict=1)
+@frappe.whitelist()
+def check_draft_invoices(delivery_note):
+    draft_invoices = frappe.db.sql("""
+        SELECT si.name
+        FROM `tabSales Invoice` si
+        JOIN `tabSales Invoice Item` sii ON sii.parent = si.name
+        WHERE si.docstatus = 0
+        AND sii.delivery_note = %s
+    """, (delivery_note,), as_dict=True)
+
+    return draft_invoices
+
+
 
