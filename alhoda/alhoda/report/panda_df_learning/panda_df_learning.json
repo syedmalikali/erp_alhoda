@@ -1,0 +1,39 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-05-22 13:16:32.715784",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-05-22 15:01:21.221380",
+ "modified_by": "Administrator",
+ "module": "Alhoda",
+ "name": "Panda DF Learning",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Panda DF Learning",
+ "report_script": "\r\npr = frappe.db.get_list(\"Sales Invoice\",filters={\"docstatus\":1},fields=[\"name\", \"customer\",\"customer_name\",\"posting_date\", \"grand_total\", \"status\"])\r\ndf = pd.DataFrame.from_records(pr)\r\ndf['posting_date'] = pd.to_datetime(df['posting_date'])\r\n\r\n\r\ndf[\"week\"] = df['posting_date'].dt.year.astype(str) + \" - \" + df['posting_date'].dt.week.map(\"{:02}\".format).astype(str)\r\ndf = df.groupby([\"customer\", \"week\", \"customer_name\"],as_index=False)[\"grand_total\"].sum()\r\n\r\ndf = df.sort_values(by=['week'],ascending=True)\r\ndf = df.pivot(index=[\"party\",\"customer_name\"], columns='week', values='grand_total').reset_index().rename_axis(None, axis=1).fillna(0)\r\n\r\ndf[\"Scheduled Total\"] = round(df.iloc[:,1:].sum(axis=1),2)\r\n\r\ndf[\"Ledger Balance\"] = round(df.apply(lambda x: get_balance_on(party_type=\"customer\",party=x['customer']), axis=1),2)\r\n\r\ndf[\"Unscheduled Amount\"] = round(df[\"Ledger Balance\"] + df[\"Scheduled Total\"],2)\r\ndf = df.set_index('party')\r\ndf.rename(columns = {'party':'Supplier Code','customer_name':'Supplier Name'}, inplace = True)\r\n\r\ndata = df.values.tolist()\r\ncolumns = df.columns.values.tolist()\r\n\r\ndata = columns, data",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Employee Self Service"
+  },
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "Sales Executives"
+  }
+ ]
+}

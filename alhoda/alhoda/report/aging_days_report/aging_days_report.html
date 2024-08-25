@@ -1,0 +1,82 @@
+<style>
+    .currency {
+        text-align: right;
+    }
+
+    .table td { 
+        padding:1px!important;
+        border: 1px solid #d3d3d3; /* light grey border */
+    }
+
+    .table th {
+	padding-top: 100px !important;
+	 border: 1px solid #d3d3d3; /* light grey border */
+        background-color: #f2f2f2; /* light grey background for headers */
+    }
+ 
+
+
+    @media print {
+        .header, .footer {
+            position: fixed;
+            width: 100%;
+        }
+
+        .header {
+            top: 0;
+		
+            text-align: center;
+        }
+
+        .footer {
+            bottom: 0;
+            text-align: center;
+        }
+
+
+    }
+</style>
+
+<div class="header">
+    <p><img src="http://144.217.4.120:8001/files/ghj.png" width="100%"></p>
+    <h2 style="margin-top:1px;">{%= __("Customer wise Aging Days Report") %}</h2>
+</div>
+
+
+
+<div class="page">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="padding-top:110px;">Date</th>
+                <th>Age</th>
+                <th>Voucher No</th>
+                <th>PO No</th>
+                <th>Invoiced</th>
+                <th>Paid</th>
+                <th>Credit Note</th>
+                <th>Outstanding</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for(var i=0, l=data.length; i<l; i++) { %}
+                <tr>
+                    <td class="cen" style="width: 80px;">{%= frappe.datetime.str_to_user(data[i]["posting_date"]) %}</td>
+                    <td class="cen">{%= data[i]["age"] %}</td>
+                    <td style="width: 100px;">{%= data[i]["voucher_no"] %}</td>
+                    <td class="cen" style="width: 150px;text-align:left;">{%= data[i]["po_no"] %}</td>
+                    <td class="currency">{%= format_currency(data[i]["invoiced"]) %}</td>
+                    <td class="currency">{%= format_currency(data[i]["paid"]) %}</td>
+                    <td class="currency">{%= format_currency(data[i]["credit_note"]) %}</td>
+                    <td class="currency">{%= format_currency(data[i]["outstanding"]) %}</td>
+                </tr>
+            {% } %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    window.onload = function() {
+        window.print();
+    };
+</script>
