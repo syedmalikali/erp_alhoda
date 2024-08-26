@@ -38,11 +38,11 @@
 
 .page-header {
   position: fixed;
-  top: -5mm;
+  top: 5mm;
   width: 100%;
   padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid red;
+  margin: 10px 0 10px;
+
 
   /* border-bottom: 1px solid black;  for demo */
   /* background: yellow; for demo */
@@ -86,10 +86,10 @@
 
 <div class="page-header" style="width: 100%;">
 
-<img src="/files/LH-HEADER.png" width="100%" align="center">
+<img src="/files/LH-HEADER.png" style="max-width: 65%; height: auto;" align="center">
 
 </div>
-<div>
+<div style="margin-top:20mm!important;margin-left:5mm!important;margin-right:5mm!important;">
 
 <table  style="width:100%">
 
@@ -183,6 +183,10 @@
 </div>
 <div class="page-footer">
 
-    <img src="/files/BLUE-LH-FOOTER.png" width="100%" >
-
+    <img src="/files/BLUE-LH-FOOTER.png" style="max-width: 65%; height: auto;" align="center">
 </div>
+<script type="text/javascript">
+    window.onload = function() {
+        window.print();
+    };
+</script>
