@@ -1,0 +1,25 @@
+.print-format{
+     font-family: 'Open Sans', sans-serif;
+       
+        min-height: 295mm!important;
+        height: 295mm!important;
+        margin-left:0mm;
+        margin-top:0mm;
+        margin-right:0mm;
+        margin-bottom:0mm;
+    padding: 1px 1px 1px 0px !important;
+
+}
+
+.header, .header-space,
+.footer, .footer-space {
+  height: 100px;
+}
+.header {
+  position: fixed;
+  top: 0;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+}
