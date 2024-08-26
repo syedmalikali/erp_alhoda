@@ -110,6 +110,9 @@ frappe.query_reports["Alhoda General Ledger"] = {
 			fieldtype: "Data",
 			hidden: 1,
 		},
+
+
+
 		{
 			fieldname: "group_by",
 			label: __("Group by"),

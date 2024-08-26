@@ -1,3 +1,5 @@
+
+
 <style>
 /* Styles go here */
 	.demTable {
@@ -108,7 +110,20 @@
                     <table class="demTable">
 	<thead>
 		<tr>
-			<th colspan="6">General Ledger </th>
+			<th colspan="6">
+		General Ledger from 
+			{%= frappe.datetime.str_to_user(filters.from_date) %}
+	{%= __("to") %}
+	{%= frappe.datetime.str_to_user(filters.to_date) %}
+
+{% if (filters.party_name) { %}
+		{%= filters.party_name %}
+	{% } else if (filters.party && filters.party.length) { %}
+		{%= filters.party %}
+	{% } else if (filters.account) { %}
+		{%= filters.account %}
+	{% } %}
+ </th>
 			
 		</tr>
 		<tr>
