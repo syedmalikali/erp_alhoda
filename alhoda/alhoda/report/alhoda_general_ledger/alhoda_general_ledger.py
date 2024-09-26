@@ -591,7 +591,7 @@ def get_columns(filters):
 			"options": "GL Entry",
 			"hidden": 1,
 		},
-		{"label": _("Posting Date"), "fieldname": "posting_date", "fieldtype": "Date", "width": 100},
+		{"label": _("Posting Date"), "fieldname": "posting_date", "fieldtype": "Date", "width": 120},
 		{
 			"label": _("Account"),
 			"fieldname": "account",
@@ -618,12 +618,6 @@ def get_columns(filters):
 			"width": 130,
 		},
 
-		{
-			"label": _("Rem")),
-			"fieldname": "remarks",
-			"fieldtype": "Data",
-			"width": 130,
-		},
 
 	]
 
@@ -654,12 +648,13 @@ def get_columns(filters):
 
 	columns += [
 		{"label": _("Voucher Type"), "fieldname": "voucher_type", "width": 120},
+                """
 		{
 			"label": _("Voucher Subtype"),
 			"fieldname": "voucher_subtype",
 			"fieldtype": "Data",
 			"width": 180,
-		},
+		}, """
 		{
 			"label": _("Voucher No"),
 			"fieldname": "voucher_no",

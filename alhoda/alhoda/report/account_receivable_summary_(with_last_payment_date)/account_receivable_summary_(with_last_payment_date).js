@@ -1,14 +1,13 @@
 // Copyright (c) 2024, Erpgulf and contributors
 // For license information, please see license.txt
 
-frappe.query_reports["Customer Aging Report 2"] = {
+frappe.query_reports["Account Receivable Summary (With Last Payment Date)"] = {
 	filters: [
 		{
 			fieldname: "company",
 			label: __("Company"),
 			fieldtype: "Link",
 			options: "Company",
-			reqd: 1,
 			default: frappe.defaults.get_user_default("Company"),
 		},
 		{
@@ -16,6 +15,41 @@ frappe.query_reports["Customer Aging Report 2"] = {
 			label: __("Posting Date"),
 			fieldtype: "Date",
 			default: frappe.datetime.get_today(),
+		},
+		{
+			fieldname: "ageing_based_on",
+			label: __("Ageing Based On"),
+			fieldtype: "Select",
+			options: "Posting Date\nDue Date",
+			default: "Due Date",
+		},
+		{
+			fieldname: "range1",
+			label: __("Ageing Range 1"),
+			fieldtype: "Int",
+			default: "30",
+			reqd: 1,
+		},
+		{
+			fieldname: "range2",
+			label: __("Ageing Range 2"),
+			fieldtype: "Int",
+			default: "60",
+			reqd: 1,
+		},
+		{
+			fieldname: "range3",
+			label: __("Ageing Range 3"),
+			fieldtype: "Int",
+			default: "90",
+			reqd: 1,
+		},
+		{
+			fieldname: "range4",
+			label: __("Ageing Range 4"),
+			fieldtype: "Int",
+			default: "120",
+			reqd: 1,
 		},
 		{
 			fieldname: "finance_book",
@@ -64,70 +98,22 @@ frappe.query_reports["Customer Aging Report 2"] = {
 			},
 		},
 		{
-			fieldname: "party_account",
-			label: __("Receivable Account"),
-			fieldtype: "Link",
-			options: "Account",
-			get_query: () => {
-				var company = frappe.query_report.get_filter_value("company");
-				return {
-					filters: {
-						company: company,
-						account_type: "Receivable",
-						is_group: 0,
-					},
-				};
-			},
-		},
-		{
-			fieldname: "ageing_based_on",
-			label: __("Ageing Based On"),
-			fieldtype: "Select",
-			options: "Posting Date\nDue Date",
-			default: "Due Date",
-		},
-		{
-			fieldname: "range1",
-			label: __("Ageing Range 1"),
-			fieldtype: "Int",
-			default: "30",
-			reqd: 1,
-		},
-		{
-			fieldname: "range2",
-			label: __("Ageing Range 2"),
-			fieldtype: "Int",
-			default: "60",
-			reqd: 1,
-		},
-		{
-			fieldname: "range3",
-			label: __("Ageing Range 3"),
-			fieldtype: "Int",
-			default: "90",
-			reqd: 1,
-		},
-		{
-			fieldname: "range4",
-			label: __("Ageing Range 4"),
-			fieldtype: "Int",
-			default: "120",
-			reqd: 1,
-		},
-		{
 			fieldname: "customer_group",
 			label: __("Customer Group"),
-			fieldtype: "MultiSelectList",
+			fieldtype: "Link",
 			options: "Customer Group",
-			get_data: function (txt) {
-				return frappe.db.get_link_options("Customer Group", txt);
-			},
 		},
 		{
 			fieldname: "payment_terms_template",
 			label: __("Payment Terms Template"),
 			fieldtype: "Link",
 			options: "Payment Terms Template",
+		},
+		{
+			fieldname: "territory",
+			label: __("Territory"),
+			fieldtype: "Link",
+			options: "Territory",
 		},
 		{
 			fieldname: "sales_partner",
@@ -139,19 +125,7 @@ frappe.query_reports["Customer Aging Report 2"] = {
 			fieldname: "sales_person",
 			label: __("Sales Person"),
 			fieldtype: "Link",
-			options: "Employee",
-		},
-		{
-			fieldname: "territory",
-			label: __("Territory"),
-			fieldtype: "Link",
-			options: "Territory",
-		},
-		{
-			fieldname: "group_by_party",
-			label: __("Group By Customer"),
-			fieldtype: "Check",
-			default:1,
+			options: "Sales Person",
 		},
 		{
 			fieldname: "based_on_payment_terms",
@@ -164,23 +138,8 @@ frappe.query_reports["Customer Aging Report 2"] = {
 			fieldtype: "Check",
 		},
 		{
-			fieldname: "show_delivery_notes",
-			label: __("Show Linked Delivery Notes"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "show_sales_person",
-			label: __("Show Sales Person"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "show_remarks",
-			label: __("Show Remarks"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "in_party_currency",
-			label: __("In Party Currency"),
+			fieldname: "show_gl_balance",
+			label: __("Show GL Balance"),
 			fieldtype: "Check",
 		},
 		{
@@ -188,30 +147,17 @@ frappe.query_reports["Customer Aging Report 2"] = {
 			label: __("Revaluation Journals"),
 			fieldtype: "Check",
 		},
-		{
-			fieldname: "ignore_accounts",
-			label: __("Group by Voucher"),
-			fieldtype: "Check",
-		},
 	],
 
-	formatter: function (value, row, column, data, default_formatter) {
-		value = default_formatter(value, row, column, data);
-		if (data && data.bold) {
-			value = value.bold();
-		}
-		return value;
-	},
-
 	onload: function (report) {
-		report.page.add_inner_button(__("Accounts Receivable Summary"), function () {
+		report.page.add_inner_button(__("Accounts Receivable"), function () {
 			var filters = report.get_values();
-			frappe.set_route("query-report", "Accounts Receivable Summary", { company: filters.company });
+			frappe.set_route("query-report", "Accounts Receivable", { company: filters.company });
 		});
 	},
 };
 
-erpnext.utils.add_dimensions("Customer Aging Report 2", 9);
+erpnext.utils.add_dimensions("Accounts Receivable Summary", 9);
 
 function get_party_type_options() {
 	let options = [];

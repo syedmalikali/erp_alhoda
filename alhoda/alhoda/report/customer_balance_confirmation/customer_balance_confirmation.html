@@ -1,0 +1,108 @@
+<style>
+    .print-format {
+        padding: 4mm;
+        font-size: 8.0pt !important;
+    }
+    .print-format td {
+        vertical-align: middle !important;
+    }
+    .print-format p {
+        font-size: 10pt;
+        margin: 2mm 0;
+        
+    }
+</style>
+
+
+{% for(var i=0, l=data.length; i<l; i++) { %}
+<h2 dir="RTL">
+   {%= data[i]["party"] %}
+</h2>
+<div>
+    <p align="center" dir="RTL">
+        <STRONG>{%= data[i]["party_name"] %}</STRONG>
+    </p>
+</div>
+<p align="center" dir="RTL">
+    تحية طيبة وبعد ،،
+</p>
+<p dir="RTL">
+    <strong>الموضوع : <u>طلب المصادقة على رصيد الحساب عميل</u></strong>
+</p>
+<table cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+        <tr>
+            <td>
+                <div>
+                    <p align="right">
+                        تأكيد الرصيد المستحق بتاريخ <strong>{%= __(filters.report_date) %}</strong>
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    يقوم مراجع  الحسابات لدينا (كي بي ام جي للاستشارات المهنية) ، بمراجعة
+    حساباتنا المالية. وفيما يتعلق  بذلك يرغبون في تأكيد الرصيد  المستحق بتاريخ
+</p>
+<p dir="RTL">
+    حيث ان رصيد الحساب  لديكم فى ذلك التاريخ  مدين / دائن فقط <strong></strong><strong> {%= format_currency(data[i]["outstanding"], data[i]["currency"]) %}  </strong><strong></strong>ريال 
+    سعودي
+</p>
+<p dir="RTL">
+    يرجى توضيح بالخانة المزودة أدناه عما إذا كان هذا الرصيد  يتفق مع سجلاتكم في
+    ذلك التاريخ أم لا وفى حالة  اى اختلافات او اعتراضات ان وجدت ، فيرجى تقديم أي
+    معلومات قد تكون لديكم والتي  ستساعد المراجعين في تسوية الفرق.
+</p>
+<p dir="RTL">
+    وبعد توقيع ردكم وتأريخه، يرجى إرسال نسخة من هذا الخطاب عن طريق  الفاكس على
+    رقم :
+</p>
+<p dir="RTL">
+   <span dir="LTR"> <strong>+966  (0) 13 816 2888 </span></strong> أو إرسال بريد إلكتروني بردِّكم على
+    <strong>{%= __(filters.email_res1) %} أو {%= __(filters.email_res2) %} </strong>   ، مع نسخة موقعة <strong>إلى</strong><strong></strong><strong>(</strong><strong>{%= __(filters.email_auditor) %})</strong>، 
+    ومن ثم إرسال الأصل  بالبريد مباشرة إلى مراجعي الحسابات لدينا (كي بي ام جي
+    للاستشارات المهنية) ص.ب 4803 الخبر 3146 - 34412  المملكة العربية  السعودية
+</p>
+<p dir="RTL">
+    <strong>أعجاز عمر</strong> <strong></strong>
+</p>
+<p dir="RTL">
+    <strong>المدير  المالي</strong>
+</p>
+<p dir="RTL">
+    <strong>لــ : مصنع الشرق للبوليستيرين المحدودة</strong>
+</p>
+<br clear="ALL"/>
+<p dir="RTL">
+    (كي بي ام جي  للاستشارات المهنية)
+</p>
+<p dir="RTL">
+    ص.ب 4803 الدمام 3146 -34412
+</p>
+<p dir="RTL">
+    المملكة العربية السعودية
+</p>
+<p dir="RTL">
+    إن رصيد حسابكم  لدينا والمستحق لنا كما هومبين اعلاه فقط لا غير وقدره
+    <strong></strong><strong> {%= format_currency(data[i]["outstanding"], data[i]["currency"]) %} </strong><strong>9</strong><strong></strong><strong></strong>ريال 
+    سعودي ومتوافق مع سجلات
+</p>
+<p dir="RTL">
+    <strong>مصنع الشرق  للبوليستيرين المحدودة</strong>بتاريخ،
+    <strong>{%= __(filters.report_date) %}</strong> مع الاستثناءات التالية (إن وجدت).
+</p>
+<div>
+</div>
+<p>&nbsp</p>
+<p>&nbsp</p>
+<p>&nbsp</p>
+
+<p>&nbsp</p>
+
+<p dir="RTL">
+    التاريخ __________________التوقيع:   ____________________________
+</p>
+    <div class="page-break"></div>
+{% } %}
