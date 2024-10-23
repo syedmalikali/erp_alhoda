@@ -647,26 +647,15 @@ def get_columns(filters):
 		]
 
 	columns += [
-		{"label": _("Voucher Type"), "fieldname": "voucher_type", "width": 120},
-                """
-		{
-			"label": _("Voucher Subtype"),
-			"fieldname": "voucher_subtype",
-			"fieldtype": "Data",
-			"width": 180,
-		}, """
-		{
-			"label": _("Voucher No"),
-			"fieldname": "voucher_no",
-			"fieldtype": "Dynamic Link",
-			"options": "voucher_type",
-			"width": 180,
-		},
+    		{"label": _("Voucher Type"), "fieldname": "voucher_type", "width": 120},
+    		{"label": _("Voucher Subtype"),"fieldname": "voucher_subtype","fieldtype": "Data","width": 180,},
+			{"label": _("Voucher No"),"fieldname": "voucher_no","fieldtype": "Dynamic Link","options": "voucher_type","width": 180,},
 		{"label": _("Against Account"), "fieldname": "against", "width": 120},
 		{"label": _("Party Type"), "fieldname": "party_type", "width": 100},
 		{"label": _("Party"), "fieldname": "party", "width": 100},
-		{"label": _("Project"), "options": "Project", "fieldname": "project", "width": 100},
-	]
+		{"label": _("Project"), "fieldname": "project", "options": "Project", "width": 100},
+		]
+
 
 	if filters.get("include_dimensions"):
 		for dim in get_accounting_dimensions(as_list=False):

@@ -155,14 +155,14 @@ frappe.query_reports["Balance Confirmation"] = {
 			fieldname: "show_future_payments",
 			label: __("Show Future Payments"),
 			fieldtype: "Check",
-			depends_on: "0"
+			
 
 		},
 		{
 			fieldname: "show_gl_balance",
 			label: __("Show GL Balance"),
 			fieldtype: "Check",
-			depends_on: "0"
+			
 
 		},
 		{

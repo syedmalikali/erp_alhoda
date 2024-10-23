@@ -56,8 +56,6 @@ class AccountsReceivableSummary(ReceivablePayableReport):
 			gl_balance_map = get_gl_balance(self.filters.report_date, self.filters.company)
 
 		for party, party_dict in self.party_total.items():
-			if flt(party_dict.outstanding, self.currency_precision) == 0:
-				continue
 
 			row = frappe._dict()
 
@@ -150,7 +148,7 @@ class AccountsReceivableSummary(ReceivablePayableReport):
 			fieldname="party",
 			fieldtype="Dynamic Link",
 			options="party_type",
-			width=180,
+			width=120,
 		)
 
 		
@@ -158,6 +156,7 @@ class AccountsReceivableSummary(ReceivablePayableReport):
 			label=_("Supplier Name") if self.account_type == "Payable" else _("Customer Name"),
 			fieldname="party_name",
 			fieldtype="Data",
+			width=250,
 		)
 
 		credit_debit_label = "Credit Note" if self.account_type == "Receivable" else "Debit Note"
