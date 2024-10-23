@@ -22,7 +22,7 @@ def get_columns():
         'fieldname': 'item_name',
         'label': 'Description',
         'fieldtype': 'Data',
-        'width': 200
+        'width': 300
     },
 
     {
@@ -69,8 +69,15 @@ def get_columns():
 ]
 def get_data_and_chart(filters):
     conditions = "AND 1=1 "
+    cond2 = " "
     if(filters.get('item_code')):
         conditions += f"and  tb.item_code like '%{filters.get('item_code')}%'"
+    if(filters.get('description')):
+        conditions += f"and  ti.item_name like '%{filters.get('description')}%'"
+    if(filters.get('hide_zero_qty')):
+        conditions += f"and  tb.actual_qty>0"
+    if not (filters.get('item_code') or filters.get('description') ):
+        cond2 = "limit 200"    
             
         
     
@@ -93,6 +100,7 @@ GROUP BY
     tb.item_code, tb.warehouse
 ORDER BY
     tb.item_code, tb.warehouse
+{cond2}
 """
 
     frappe.errprint(mysql)

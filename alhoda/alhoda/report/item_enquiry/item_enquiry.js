@@ -7,9 +7,24 @@ frappe.query_reports["Item Enquiry"] = {
 			"fieldname":"item_code",
 			"label":"Item Code",
 			"fieldtype":"Data",
-			"Default":"AB",
 			"width":"100",
-			"reqd":1,
+
+		},
+		{
+			"fieldname":"description",
+			"label":"Description",
+			"fieldtype":"Data",
+			"Default":"AB",
+			"width":"150",
+			
+		},
+
+		{
+			"fieldname":"hide_zero_qty",
+			"label":"Hide Zero Qty",
+			"fieldtype":"Check",
+			"default":1,
+
 		},
 
 	]
