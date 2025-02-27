@@ -1,0 +1,67 @@
+<style>
+.table th, .table td {
+    border: 1px solid black;
+}
+
+.currency-align {
+    text-align: right;
+}
+
+.print-format td, .print-format th {
+    padding: 2px !important;
+    border: 1px solid black;
+    vertical-align:middle !important;
+}
+.print-format table thead tr th:nth-child(1) {
+  text-align: center !important;
+}
+
+/* New CSS rule for the table header border color */
+.table thead th {
+    border: 1px solid black !important;
+}
+</style>
+
+<h2 class="text-center">{%= __("Accounts Receivable Aging Report") %}</h2>
+ <h4 class="text-center">
+    {% if (filters.customer_name) { %}
+      {%= filters.customer_name %}
+    {% } else { %}
+      {%= filters.customer || filters.supplier %}
+    {% } %}
+  </h4>
+<h5 class="text-center">
+    {%= __(filters.ageing_based_on) %}
+    {%= __("Until") %}
+    {%= frappe.datetime.str_to_user(filters.report_date) %}
+  </h5>
+<table class="table">
+<thead>
+<tr>
+<th>Party</th>
+<th>Party Name</th>
+<th>Outstanding</th>
+<th>0-30</th>
+<th>31-60</th>
+<th>61-90</th>
+<th>91-120</th>
+<th>121-Above</th>
+</tr>
+</thead>
+<tbody>
+        {% for(var i=0, l=data.length; i<l; i++) { %}
+            <tr>
+                
+                    <td >{%= data[i]["party"] %}</td>
+		    <td>{%= data[i]["customer_name"] %}</td>
+<td class="currency-align">{%= format_currency(data[i]["outstanding"]) %}</td>
+<td class="currency-align" >{%= data[i]["range1"]  !==  0 ? format_currency(data[i]["range1"]) : '' %}</td>
+<td class="currency-align" >{%= data[i]["range2"]  !==  0 ? format_currency(data[i]["range2"]) : '' %}</td>
+<td class="currency-align" >{%= data[i]["range3"] !==  0 ? format_currency(data[i]["range3"]) : '' %}</td>
+<td class="currency-align" >{%= data[i]["range4"]  !==  0 ? format_currency(data[i]["range4"]) : '' %}</td>
+<td class="currency-align" >{%= data[i]["range5"]  !==  0 ? format_currency(data[i]["range5"]) : '' %}</td>
+    
+            </tr>
+        {% } %}
+</tbody>
+</table>

@@ -1,0 +1,21 @@
+{
+ "creation": "2024-12-31 12:22:05.830470",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "filters_json": "null",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "label": "Test",
+ "method": "test_card",
+ "modified": "2024-12-31 12:22:05.830470",
+ "modified_by": "Administrator",
+ "module": "Alhoda",
+ "name": "Test",
+ "owner": "Administrator",
+ "report_function": "Sum",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Custom"
+}

@@ -18,7 +18,14 @@ frappe.query_reports["Item Enquiry"] = {
 			"width":"150",
 			
 		},
-
+		{
+			"fieldname":"custom_part_number",
+			"label":"Part Number",
+			"fieldtype":"Data",
+			"Default":"AB",
+			"width":"150",
+			
+		},
 		{
 			"fieldname":"hide_zero_qty",
 			"label":"Hide Zero Qty",

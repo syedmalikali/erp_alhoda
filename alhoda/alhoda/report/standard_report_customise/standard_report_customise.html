@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny General Ledger</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 0;
+            padding: 10px;
+        }
+        h2 {
+            margin-bottom: 5px;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            page-break-inside: auto;
+        }
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 4px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #e6e6e6;
+        }
+.print-format {
+    background-color: white;
+    border-radius: 8px;
+    max-width: 8.3in;
+    min-height: 11.69in;
+    padding: 5mm;
+    margin: auto;
+    color: var(--gray-900);
+}
+        
+.print-format td, .print-format th {
+    padding: 2px !important;
+}
+
+<style>
+.print-format td, .print-format th {
+    vertical-align: top !important;
+    padding: 6px !important;
+}
+    </style>
+</head>
+<body>
+
+    <table>
+<thead>
+
+<tr>
+    <td colspan="6" style="text-align: center;">
+        <div style="font-family:Arial">
+            <div>
+                <div class="title-letter-spacing" style="text-align:center; font-size:15px; text-decoration:underline;">
+                    <b>
+                        {%= __("STATEMENT OF ACCOUNTS") %}<br>
+                        {% if (filters.party_name) { %}
+                            <br>{%= filters.party_name %}
+                        {% } else if (filters.party && filters.party.length) { %}
+                            <br>{%= filters.party %}
+                        {% } else if (filters.account) { %}
+                            <br>{%= filters.account %}
+                        {% } else { %}
+                            <br>{%= __("All Parties ") %}
+                        {% } %}
+                    </b>
+                </div>
+                <div style="text-align:center; font-size:13px;">
+                    <b>
+                        {%= frappe.datetime.str_to_user(filters.from_date) %}
+                        {%= __("to") %}
+                        {%= frappe.datetime.str_to_user(filters.to_date) %}<br><br>
+                    </b>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr> <!-- Close the row properly -->
+		<tr>
+			<th style="width: 12%;text-align:center;">{%= __("Date") %}</th>
+			<th style="width: 20%;text-align:left;">{%= __("Reference") %}</th>
+			<th style="width: 38%;text-align:left;font-size: xx-small;">{%= __("Remarks") %}</th>
+			<th style="width: 10%">{%= __("Debit") %}</th>
+			<th style="width: 10%">{%= __("Credit") %}</th>
+			<th style="width: 10%">{%= __("Balance") %}</th>
+		</tr>
+        </thead>
+        <tbody>
+{% for(var i=0, l=data.length; i<l; i++) { %}
+<tr>
+			{% if(data[i].posting_date) { %}
+				<td style="text-align:center;">{%= frappe.datetime.str_to_user(data[i].posting_date) %}</td>
+{% 
+    var words = data[i].voucher_subtype ? data[i].voucher_subtype.split(" ") : data[i].voucher_type.split(" "); 
+    var abbreviation = words[0][0] + (words[1] ? words[1][0] : ""); 
+%}
+
+
+				<!-- <td>{%= abbreviation %} - {%= data[i].voucher_no %}</td> -->
+                <td>{%= data[i].account %}</td>
+
+				{% var longest_word = cstr(data[i].remarks).split(" ").reduce((longest, word) => word.length > longest.length ? word : longest, ""); %}
+				<td {% if longest_word.length > 45 %} class="overflow-wrap-anywhere" {% endif %}>
+					<span>
+					{% if(!(filters.party || filters.account)) { %}
+						{%= data[i].party || data[i].account %}
+						<br>
+					{% } %}
+
+					{%= data[i].remarks.replace(/Against Customer Order/g, "Cust. Po No - ").replace(/against Sales Invoice/g, "->").replace(/Amount/g, "-").trim() %}
+
+					{% if(data[i].bill_no) { %}
+						<br>{%= __("Supplier Invoice No") %}: {%= data[i].bill_no %}
+					{% } %}
+					</span>
+
+
+
+				</td>
+				<td style="text-align: right">
+					{%= format_currency(data[i].debit, filters.presentation_currency || data[i].account_currency) %}
+				</td>
+				<td style="text-align: right">
+					{%= format_currency(data[i].credit, filters.presentation_currency || data[i].account_currency) %}
+				</td>
+			{% } else { %}
+				<td></td>
+				<td></td>
+				<td><b>{%= frappe.format(data[i].account, {fieldtype: "Link"}) || "&nbsp;" %}</b></td>
+				<td style="text-align: right">
+					{%= data[i].account && format_currency(data[i].debit, filters.presentation_currency || data[i].account_currency) %}
+				</td>
+				<td style="text-align: right">
+					{%= data[i].account && format_currency(data[i].credit, filters.presentation_currency || data[i].account_currency) %}
+				</td>
+			{% } %}
+				<td style="text-align: right">
+					{%= format_currency(data[i].balance, filters.presentation_currency || data[i].account_currency) %}
+				</td>
+			</tr>
+
+{% } %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+

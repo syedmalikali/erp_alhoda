@@ -61,6 +61,8 @@ def get_data(filters):
                 WHEN st.sales_person = 'JIH' THEN 'Ismath'
                 WHEN st.sales_person = 'RCS' THEN 'Riyad Counter'
                 WHEN st.sales_person = 'RMK' THEN 'Kathafy'
+                WHEN st.sales_person = 'RJS' THEN 'Justin'
+                WHEN st.sales_person = 'RSC' THEN 'Sarath'
             END AS branch,
             SUM(si.net_total) AS tot,
             SUM(CASE WHEN MONTH(si.posting_date) = 1 THEN si.net_total ELSE 0 END) AS jan,

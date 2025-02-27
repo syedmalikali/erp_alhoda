@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Party</th>
+            <th>Customer Name</th>
+            <th>Advance Amount</th>
+            <th>Invoiced Amount</th>
+            <th>Paid Amount</th>
+            <th>Outstanding Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.party }}</td>
+            <td>
+                {{ row.customer_name or frappe.get_value("Customer", row.party, "customer_name") }}
+            </td>
+            <td>{{ row.advance }}</td>
+            <td>{{ row.invoiced }}</td>
+            <td>{{ row.paid }}</td>
+            <td>{{ row.outstanding }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
