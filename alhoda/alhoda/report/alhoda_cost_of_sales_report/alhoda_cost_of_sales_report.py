@@ -646,7 +646,9 @@ class GrossProfitGenerator(object):
 		# sorted by posting_date desc, posting_time desc
 		if item_code in self.non_stock_items and (row.project or row.cost_center):
 			# Issue 6089-Get last purchasing rate for non-stock item
-			item_rate = self.get_last_purchase_rate(item_code, row)
+			# Modified By Malik for Non Stock Item
+			#item_rate = self.get_last_purchase_rate(item_code, row)
+			item_rate = 1
 			return flt(row.qty) * item_rate
 
 		else:
