@@ -5,74 +5,81 @@
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
-  "field_order": [
-        "item_code",
-        "item_name",
-        "total_qty_counted",
-        "system_qty",
-        "difference",
-        "check_movement",
-        "qty_description_by_page",
-        "remarks"
-    ],
-    "fields": [
-        {
-            "fieldname": "item_code",
-            "fieldtype": "Link",
-            "in_list_view": 1,
-            "label": "Item Code",
-            "options": "Item",
-            "reqd": 1
-        },
-        {
-            "fieldname": "item_name",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "Item Name",
-            "read_only": 1
-        },
-        {
-            "fieldname": "total_qty_counted",
-            "fieldtype": "Float",
-            "in_list_view": 1,
-            "label": "Total Qty Counted",
-            "read_only": 1
-        },
-        {
-            "fieldname": "system_qty",
-            "fieldtype": "Float",
-            "in_list_view": 1,
-            "label": "System Qty (Inventory Date)",
-            "read_only": 1
-        },
-        {
-            "fieldname": "difference",
-            "fieldtype": "Float",
-            "in_list_view": 1,
-            "label": "Difference",
-            "read_only": 1
-        },
-        {
-            "fieldname": "check_movement",
-            "fieldtype": "HTML",
-            "label": "Check Movement"
-        },
-        {
-            "fieldname": "qty_description_by_page",
-            "fieldtype": "Text",
-            "label": "Qty Description (Page-wise)"
-        },
-        {
-            "fieldname": "remarks",
-            "fieldtype": "Small Text",
-            "label": "Remarks"
-        }
-    ],
+ "field_order": [
+  "item_code",
+  "item_name",
+  "total_qty_counted",
+  "system_qty",
+  "corrected_qty",
+  "difference",
+  "check_movement",
+  "qty_description_by_page",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_qty_counted",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Qty Counted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "system_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "System Qty (Inventory Date)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "difference",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Difference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "check_movement",
+   "fieldtype": "Button",
+   "label": "Move"
+  },
+  {
+   "fieldname": "qty_description_by_page",
+   "fieldtype": "Small Text",
+   "label": "Qty Description (Page-wise)"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "corrected_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Corrected Qty"
+  }
+ ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-01-01 19:55:25.734529",
+ "modified": "2026-01-18 10:17:19.915714",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Stock Taking Summary Item",
