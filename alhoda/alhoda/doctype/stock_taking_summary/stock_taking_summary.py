@@ -10,6 +10,39 @@ from erpnext.stock.utils import get_stock_balance
 class StockTakingSummary(Document):
 
     @frappe.whitelist()
+    def create_recounting_entries(docname):
+        doc = frappe.get_doc("Stock Taking Summary", docname)
+
+        for row in doc.items:  # change if child table fieldname is different
+
+        # Skip if any required value missing
+            if row.corrected_qty is None or row.total_qty_counted is None:
+                continue
+
+        # If same, nothing to do
+            if row.corrected_qty == row.total_qty_counted:
+                continue
+
+            adjustment_qty = row.corrected_qty - row.total_qty_counted
+
+        # Insert Stock Taking Entry
+            frappe.get_doc({
+                "doctype": "Stock Taking Entry",
+                "inventory_identifier": doc.inventory_identifier,
+                "inventory_date": nowdate(),
+                "warehouse": doc.warehouse,
+                "item_code": row.item_code,
+                "inventory_qty": adjustment_qty,
+                "page_number": 200,
+                "counted_by": frappe.session.user
+            }).insert(ignore_permissions=True)
+ 
+        frappe.db.commit()
+
+        return "Recounting entries created successfully"
+        
+
+    @frappe.whitelist()
     def calculate_summary(self):
         if not self.inventory_identifier:
             frappe.throw("Please enter an Inventory Identifier first.")

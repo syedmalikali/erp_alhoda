@@ -1,76 +1,89 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2026-01-01 19:56:26.829705",
  "doctype": "DocType",
+ "engine": "InnoDB",
  "field_order": [
-        "naming_series",
-        "inventory_identifier",
-        "from_date",
-        "to_date",
-        "warehouse",
-        "section_break_items",
-        "generate_summary",
-        "items"
-    ],
-    "fields": [
-        {
-            "fieldname": "naming_series",
-            "fieldtype": "Select",
-            "label": "Naming Series",
-            "options": "SUM-.YYYY.-.MM.-.#####",
-            "reqd": 1,
-            "set_only_once": 1
-        },
-        {
-            "fieldname": "inventory_identifier",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "Inventory Identifier",
-            "reqd": 1
-        },
-        {
-            "default": "Today",
-            "fieldname": "from_date",
-            "fieldtype": "Date",
-            "label": "From Date (Movement Check)",
-            "reqd": 1
-        },
-        {
-            "default": "Today",
-            "fieldname": "to_date",
-            "fieldtype": "Date",
-            "label": "To Date (Movement Check)",
-            "reqd": 1
-        },
-        {
-            "fieldname": "warehouse",
-            "fieldtype": "Link",
-            "in_list_view": 1,
-            "label": "Warehouse",
-            "options": "Warehouse",
-            "reqd": 1
-        },
-        {
-            "fieldname": "section_break_items",
-            "fieldtype": "Section Break"
-        },
-        {
-            "fieldname": "generate_summary",
-            "fieldtype": "Button",
-            "label": "Generate Summary"
-        },
-        {
-            "fieldname": "items",
-            "fieldtype": "Table",
-            "label": "Items",
-            "options": "Stock Taking Summary Item"
-        }
-    ],
-    "grid_page_length": 50,
+  "naming_series",
+  "inventory_identifier",
+  "from_date",
+  "to_date",
+  "warehouse",
+  "column_break_fhwa",
+  "generate_summary",
+  "recounting",
+  "section_break_items",
+  "items"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "SUM-.YYYY.-.MM.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "inventory_identifier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Inventory Identifier",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date (Movement Check)",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date (Movement Check)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_items",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "generate_summary",
+   "fieldtype": "Button",
+   "label": "Generate Summary"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Stock Taking Summary Item"
+  },
+  {
+   "fieldname": "column_break_fhwa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recounting",
+   "fieldtype": "Button",
+   "label": "Recounting"
+  }
+ ],
+ "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-01 19:56:40.467581",
+ "modified": "2026-01-31 10:57:52.735850",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Stock Taking Summary",

@@ -20,7 +20,24 @@ frappe.ui.form.on('Stock Taking Summary', {
             }
         });
     },
+    recounting: function (frm) {
+        if (frm.is_dirty()) {
+            frappe.msgprint("Please save the document before generating the summary.");
+            return;
+        }
 
+        frm.call({
+            doc: frm.doc,
+            method: "create_recounting_entries",
+            freeze: true,
+            freeze_message: "Calculating recounting...",
+            callback: function (r) {
+                if (!r.exc) {
+                    frm.refresh_field('items');
+                }
+            }
+        });
+    },
 });
 
 frappe.ui.form.on("Stock Taking Summary Item", {
