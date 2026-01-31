@@ -33,32 +33,5 @@ frappe.ui.form.on("Stock Taking Summary Item", {
         window.open(url, "_blank");
     },
 
- remarks(frm, cdt, cdn) {
-        let row = locals[cdt][cdn];
-
-        if (row.corrected_qty == null ) {
-            return;
-        }
-
-        let diff = flt(row.corrected_qty) - flt(row.total_qty_counted);
-
-        // no change ? do nothing
-        if (diff === 0) {
-            return;
-        }
-
-frappe.call({
-    method: "make_adjustment_entry",  // ONLY the method name
-    doc: frm.doc,                      // pass the document
-    args: {
-        item_code: row.item_code,
-        adjustment_qty: diff
-    },
-    callback: function() {
-        row.last_corrected_qty = row.corrected_qty;
-        frm.refresh_field("items");
-    }
-});
-    }
 
 });

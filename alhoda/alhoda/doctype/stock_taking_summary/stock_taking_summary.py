@@ -107,7 +107,7 @@ class StockTakingSummary(Document):
                 "item_code": item_code,
                 "item_name": frappe.db.get_value("Item", item_code, "item_name"),
                 "total_qty_counted": data["total_qty"],
-                "corrected_qty": system_qty,
+                "corrected_qty": data["total_qty"],
                 "system_qty": system_qty,
                 "difference": difference,
                 "qty_description_by_page": page_desc,
@@ -120,25 +120,28 @@ class StockTakingSummary(Document):
         self.save()
         frappe.msgprint(f"Summary generated with {len(self.items)} items.")
 
-    # -----------------------------------
-    # ADJUSTMENT ENTRY (CALLED FROM CLIENT)
-    # -----------------------------------
+    # ------------------------------------------------
+    # ADJUSTMENT ENTRY (CALLED FROM CLIENT SCRIPT)
+    # ------------------------------------------------
     @frappe.whitelist()
-    def make_adjustment_entry(self, item_code, adjustment_qty):
-        adjustment_qty = flt(adjustment_qty)
+    def make_adjustment_entry(self, item_code, corrected_qty):
+        corrected_qty = flt(corrected_qty)
 
+        # Get total counted qty excluding page 200
+        total_counted_qty = frappe.db.sql("""
+            SELECT COALESCE(SUM(inventory_qty), 0)
+            FROM `tabStock Taking Entry`
+            WHERE inventory_identifier = %s
+              AND item_code = %s
+        """, (self.inventory_identifier, item_code))[0][0]
+        total_counted_qty = flt(total_counted_qty)
+
+        # Calculate adjustment
+        adjustment_qty = corrected_qty - total_counted_qty
         if adjustment_qty == 0:
-            return
+           return
 
-        # Delete any existing adjustment entries for this item on page 200
-        frappe.db.delete(
-            "Stock Taking Entry",
-            filters={
-                "inventory_identifier": self.inventory_identifier,
-                "item_code": item_code,
-                "page_number": 200
-            }
-        )
+
 
         # Insert new adjustment entry
         frappe.get_doc({
