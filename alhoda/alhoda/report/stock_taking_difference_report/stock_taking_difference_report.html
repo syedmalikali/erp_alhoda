@@ -24,7 +24,10 @@
             padding: 3px;
         }
     }
-
+.print-format td, .print-format th {
+    vertical-align: top !important;
+    padding: 2px !important;
+}
 </style>
 
 <div>
@@ -46,9 +49,9 @@
                 <td>S.No</td>
                 <td>Item Code</td>
                 <td>Item Name</td>
-                <td>System Qty</td>
-                <td>Inventory Qty</td>
-                <td>Difference</td>
+                <td>COMP</td>
+                <td>INV</td>
+                <td>Diff</td>
                 <td>Cost</td>
                 <td>Diff Value</td>
                 <td>Remarks</td>
@@ -76,13 +79,13 @@
                         <td>S.No</td>
                         <td>Item Code</td>
                         <td>Item Name</td>
-                        <td>System Qty</td>
-                        <td>Inventory Qty</td>
-                        <td>Difference</td>
+                        <td>COMP</td>
+                        <td>INV</td>
+                        <td>Diff</td>
                         <td>Cost</td>
                         <td>Diff Value</td>
                         <td>Remarks</td>
-                    </tr>
+                            </tr>
                 </thead>
                 <tbody>
                 {% sno = 0; %}
@@ -94,6 +97,7 @@
                         {%= row.tag === "E" ? "EXCESS STOCK" : "SHORTAGE STOCK" %}
                     </td>
                 </tr>
+                {% sno = 0; %}
             {% } %}
 
             {% sno = sno + 1; %}
@@ -102,11 +106,11 @@
                 <td style="text-align:center;">{%= sno %}</td>
                 <td>{%= row.item_code || "" %}</td>
                 <td>{%= row.item_name || "" %}</td>
-                <td style="text-align:right;">{%= row.system_qty || 0 %}</td>
-                <td style="text-align:right;">{%= row.inventory_qty || 0 %}</td>
-                <td style="text-align:right;">{%= row.difference || 0 %}</td>
-                <td style="text-align:right;">{%= row.cost || 0 %}</td>
-                <td style="text-align:right;">{%= row.diff_value || 0 %}</td>
+                <td style="text-align:center;">{%= row.system_qty || 0 %}</td>
+                <td style="text-align:center;">{%= row.inventory_qty || 0 %}</td>
+                <td style="text-align:center;">{%= row.difference || 0 %}</td>
+                <td style="text-align:right;">{%= (row.cost || 0).toFixed(2) %}</td>
+                <td style="text-align:right;">{%= (row.diff_value || 0).toFixed(2) %}</td>
                 <td>{%= row.remarks || "" %}</td>
             </tr>
 
