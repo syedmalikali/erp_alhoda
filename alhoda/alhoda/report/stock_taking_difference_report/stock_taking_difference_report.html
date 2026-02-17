@@ -1,0 +1,124 @@
+<style type="text/css">
+
+    body {
+        font-family: Arial;
+        font-size: 11px;
+    }
+
+    @media print {
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 3px;
+        }
+    }
+
+</style>
+
+<div>
+
+    <div style="text-align:center; font-size:15px; font-weight:bold; text-decoration:underline;">
+        STOCK TAKING DIFFERENCE REPORT
+    </div>
+
+    <div style="text-align:center; font-size:13px; margin-bottom:10px;">
+        Stock Taking Summary : {%= filters.stock_taking_summary %}
+    </div>
+
+    {% var last_tag = null; %}
+    {% var sno = 0; %}
+
+    <table style="width:100%;">
+        <thead>
+            <tr style="text-align:center; font-weight:bold;">
+                <td>S.No</td>
+                <td>Item Code</td>
+                <td>Item Name</td>
+                <td>System Qty</td>
+                <td>Inventory Qty</td>
+                <td>Difference</td>
+                <td>Cost</td>
+                <td>Diff Value</td>
+                <td>Remarks</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for (var i = 0, l = data.length; i < l; i++) { %}
+            {% var row = data[i]; %}
+
+            {% if (last_tag && row.tag !== last_tag) { %}
+                </tbody>
+                </table>
+
+                <div class="page-break"></div>
+
+                <table style="width:100%;">
+                <thead>
+                    <tr>
+                        <td colspan="9" style="text-align:center; font-weight:bold;">
+                            {%= row.tag === "E" ? "EXCESS STOCK ITEMS" : "SHORTAGE STOCK ITEMS" %}
+                        </td>
+                    </tr>
+                    <tr style="text-align:center; font-weight:bold;">
+                        <td>S.No</td>
+                        <td>Item Code</td>
+                        <td>Item Name</td>
+                        <td>System Qty</td>
+                        <td>Inventory Qty</td>
+                        <td>Difference</td>
+                        <td>Cost</td>
+                        <td>Diff Value</td>
+                        <td>Remarks</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% sno = 0; %}
+            {% } %}
+
+            {% if (row.tag !== last_tag) { %}
+                <tr>
+                    <td colspan="9" style="font-weight:bold; background:#f2f2f2;">
+                        {%= row.tag === "E" ? "EXCESS STOCK" : "SHORTAGE STOCK" %}
+                    </td>
+                </tr>
+            {% } %}
+
+            {% sno = sno + 1; %}
+
+            <tr>
+                <td style="text-align:center;">{%= sno %}</td>
+                <td>{%= row.item_code || "" %}</td>
+                <td>{%= row.item_name || "" %}</td>
+                <td style="text-align:right;">{%= row.system_qty || 0 %}</td>
+                <td style="text-align:right;">{%= row.inventory_qty || 0 %}</td>
+                <td style="text-align:right;">{%= row.difference || 0 %}</td>
+                <td style="text-align:right;">{%= row.cost || 0 %}</td>
+                <td style="text-align:right;">{%= row.diff_value || 0 %}</td>
+                <td>{%= row.remarks || "" %}</td>
+            </tr>
+
+            {% last_tag = row.tag; %}
+
+        {% } %}
+
+        </tbody>
+    </table>
+
+    <p style="text-align:right; margin-top:10px;">
+        Printed on {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}
+    </p>
+
+</div>

@@ -5,15 +5,16 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils import flt, getdate, nowdate
 from erpnext.stock.utils import get_stock_balance
+from frappe.utils import add_to_date
 
 
 class StockTakingSummary(Document):
 
     @frappe.whitelist()
-    def create_recounting_entries(docname):
-        doc = frappe.get_doc("Stock Taking Summary", docname)
+    def create_recounting_entries(self):
+        #doc = frappe.get_doc("Stock Taking Summary", docname)
 
-        for row in doc.items:  # change if child table fieldname is different
+        for row in self.items:  # change if child table fieldname is different
 
         # Skip if any required value missing
             if row.corrected_qty is None or row.total_qty_counted is None:
@@ -28,11 +29,12 @@ class StockTakingSummary(Document):
         # Insert Stock Taking Entry
             frappe.get_doc({
                 "doctype": "Stock Taking Entry",
-                "inventory_identifier": doc.inventory_identifier,
+                "inventory_identifier": self.inventory_identifier,
                 "inventory_date": nowdate(),
-                "warehouse": doc.warehouse,
+                "warehouse": self.warehouse,
                 "item_code": row.item_code,
                 "inventory_qty": adjustment_qty,
+                "stock_qty":row.system_qty,
                 "page_number": 200,
                 "counted_by": frappe.session.user
             }).insert(ignore_permissions=True)
@@ -102,11 +104,13 @@ class StockTakingSummary(Document):
         for item_code in all_item_codes:
             data = entry_map.get(item_code, {"total_qty": 0.0, "pages": {}})
             inv_date = inventory_date_map.get(item_code, default_inventory_date)
+            end_of_day = add_to_date(inv_date, hours=23, minutes=59, seconds=59)
 
             system_qty = get_stock_balance(
-                item_code,
-                self.warehouse,
-                inv_date
+                item_code=item_code,
+                warehouse=self.warehouse,
+                posting_date=inv_date,
+                posting_time="23:59:59"
             )
 
             page_desc_parts = []
@@ -144,7 +148,8 @@ class StockTakingSummary(Document):
                 "system_qty": system_qty,
                 "difference": difference,
                 "qty_description_by_page": page_desc,
-                "check_movement": movement_link
+                "check_movement": movement_link,
+                "tag": "E" if difference > 0 else "S"
             })
 
         summary_items.sort(key=lambda x: x["item_code"])

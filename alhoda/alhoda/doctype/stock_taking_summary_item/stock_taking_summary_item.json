@@ -14,7 +14,8 @@
   "difference",
   "check_movement",
   "qty_description_by_page",
-  "remarks"
+  "remarks",
+  "tag"
  ],
  "fields": [
   {
@@ -28,11 +29,11 @@
   {
    "fieldname": "item_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Item Name",
    "read_only": 1
   },
   {
+   "columns": 1,
    "fieldname": "total_qty_counted",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -40,6 +41,7 @@
    "read_only": 1
   },
   {
+   "columns": 1,
    "fieldname": "system_qty",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -47,6 +49,7 @@
    "read_only": 1
   },
   {
+   "columns": 1,
    "fieldname": "difference",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -69,17 +72,26 @@
    "label": "Remarks"
   },
   {
+   "columns": 1,
    "fieldname": "corrected_qty",
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Corrected Qty"
+  },
+  {
+   "columns": 1,
+   "fieldname": "tag",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tag",
+   "length": 5
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-01-18 10:17:19.915714",
+ "modified": "2026-02-17 08:52:11.826675",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Stock Taking Summary Item",
