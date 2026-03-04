@@ -49,6 +49,21 @@ frappe.ui.form.on("Stock Taking Summary Item", {
         let url = `/app/query-report/Stock Ledger?item_code=${row.item_code}&warehouse=${frm.doc.warehouse}&from_date=${f_date}&to_date=${t_date}`;
         window.open(url, "_blank");
     },
-
+    system_qty(frm, cdt, cdn) {
+		calculate_difference(frm, cdt, cdn);
+	},
+	total_qty_counted(frm, cdt, cdn) {
+		calculate_difference(frm, cdt, cdn);
+	}
 
 });
+function calculate_difference(frm, cdt, cdn) {
+	let row = locals[cdt][cdn];
+
+	let system_qty = row.system_qty || 0;
+	let total_qty_counted = row.total_qty_counted || 0;
+
+	row.difference = total_qty_counted - system_qty;
+
+	frm.refresh_field('items'); // change 'items' to your child table fieldname
+}
