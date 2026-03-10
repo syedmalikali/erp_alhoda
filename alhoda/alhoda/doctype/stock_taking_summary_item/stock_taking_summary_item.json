@@ -37,8 +37,7 @@
    "fieldname": "total_qty_counted",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Total Qty Counted",
-   "read_only": 1
+   "label": "Total Qty Counted"
   },
   {
    "columns": 1,
@@ -90,7 +89,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-03-04 09:32:16.368792",
+ "modified": "2026-03-10 09:42:47.853343",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Stock Taking Summary Item",

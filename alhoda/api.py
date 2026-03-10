@@ -58,3 +58,71 @@ def download_html(
 
 
 
+@frappe.whitelist()
+def get_invoice_preview(name):
+
+    invoice = frappe.get_doc("Sales Invoice", name)
+
+    items = frappe.get_all(
+        "Sales Invoice Item",
+        filters={"parent": name},
+        fields=["item_name","qty","rate","amount"]
+    )
+
+    gl_entries = frappe.get_all(
+        "GL Entry",
+        filters={
+            "voucher_no": name,
+            "voucher_type": "Sales Invoice"
+        },
+        fields=["account","debit","credit","remarks"]
+    )
+
+    return {
+        "name": invoice.name,
+        "customer": invoice.customer,
+        "status": invoice.status,
+        "posting_date": invoice.posting_date,
+        "due_date": invoice.due_date,
+        "grand_total": invoice.grand_total,
+        "items": items,
+        "gl_entries": gl_entries
+    }
+# Server Script (API type) - rename to e.g. get_document_preview
+@frappe.whitelist()
+def get_document_preview():
+    dt = frappe.form_dict.get("doctype")
+    name = frappe.form_dict.get("name")
+
+    if not dt or not name:
+        frappe.throw("Doctype and Name required")
+
+    doc = frappe.get_doc(dt, name)
+
+    items = []
+    if frappe.get_meta(dt).has_field("items"):
+        items = frappe.get_all(
+            f"{dt} Item",
+            filters={"parent": name},
+            fields=["item_name", "qty", "rate", "amount"]
+        )
+
+    gl_entries = frappe.get_all(
+        "GL Entry",
+        filters={"voucher_type": dt, "voucher_no": name},
+        fields=["account", "debit", "credit", "remarks"]
+    )
+
+    return {
+        "name": doc.name,
+        "customer": doc.get("customer"),           # fallback if no customer
+        "supplier": doc.get("supplier"),
+        "party_name": doc.get("party_name"),
+        "posting_date": doc.posting_date,
+        "due_date": doc.get("due_date"),
+        "grand_total": doc.get("grand_total") or doc.get("total") or doc.get("rounded_total") or 0,
+        "status": doc.status,
+        "currency": doc.currency or "INR",
+        "items": items,
+        "gl_entries": gl_entries
+    }
